@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1054541326628",
+    "project_id": "kidslearning-cdc9a",
+    "storage_bucket": "kidslearning-cdc9a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1054541326628:android:e134cf85e73fa89990abb1",
+        "android_client_info": {
+          "package_name": "com.roula.kidslearning"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1054541326628-5b2lsc4g2f5ulshdpck3iaf1mev8egk3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDrg3RGRDPI2WrqoI-PaZqytbQMu7v4x_U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1054541326628-5b2lsc4g2f5ulshdpck3iaf1mev8egk3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
