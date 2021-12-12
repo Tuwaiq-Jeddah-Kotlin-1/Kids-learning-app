@@ -16,6 +16,12 @@
     <color name="primaryTextColor">#00a5ff</color>
     <color name="loginBkColor">#f0f0f0</color>
 
-    <!--colros for card-->
-    <color name="whiteCardColor">#fff</color>
+    <!--colors for card-->
+    <color name="colorForBackground">#c69d6f</color>
+    <color name="colorBlueDark">#105878</color>
+    <color name="colorOrange">#eda96d</color>
+    <color name="colorPink">#d95b58</color>
+    <color name="colorOrange2">#f47835</color>
+
+
 </resources>

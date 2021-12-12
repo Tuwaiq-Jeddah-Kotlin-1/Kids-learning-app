@@ -12,6 +12,7 @@ import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.firestore.SetOptions
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.roula.kidslearning.R
@@ -31,7 +32,9 @@ class Register : Fragment() {
     private lateinit var btn_rigster: Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        arguments?.let {
 
+        }
     }
 
     override fun onCreateView(
@@ -41,11 +44,14 @@ class Register : Fragment() {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_register, container, false)
     }
-    private fun saveUsers (user: Users) = CoroutineScope(Dispatchers.IO).launch {
+
+    private fun saveUsers(users: Users) = CoroutineScope(Dispatchers.IO).launch {
         val uid = FirebaseAuth.getInstance().currentUser?.uid
         try {
-            firebaseObj.document("$uid").set(user).addOnSuccessListener {
+            ///if ubdate user writ here  SetOptions.merge()
+            firebaseObj.document("$uid").set(users).addOnSuccessListener {
                 Toast.makeText(context, "Successfully saved data.", Toast.LENGTH_SHORT).show()
+                findNavController().navigate(R.id.action_register_to_home2)
 
             }
 
@@ -55,6 +61,7 @@ class Register : Fragment() {
             }
         }
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -63,65 +70,68 @@ class Register : Fragment() {
         email_register = view.findViewById(R.id.et_email_register)
         password_rigster = view.findViewById(R.id.et_password_register)
         btn_rigster = view.findViewById(R.id.btn_register)
-
-        when {
-            TextUtils.isEmpty(email_register.text.toString().trim { it <= ' ' }) -> {
-                Toast.makeText(
-                    context,
-                    "Please Enter Email",
-                    Toast.LENGTH_LONG
-                ).show()
-            }
-
-            TextUtils.isEmpty(password_rigster.text.toString().trim { it <= ' ' }) -> {
-                Toast.makeText(
-                    context,
-                    "Please Enter Password",
-                    Toast.LENGTH_LONG
-                ).show()
+        btn_rigster.setOnClickListener {
 
 
-            }
-            else -> {
-                val email: String = email_register.text.toString().trim { it <= ' ' }
-                val password: String = password_rigster.text.toString().trim { it <= ' ' }
+            when {
+                TextUtils.isEmpty(email_register.text.toString().trim { it <= ' ' }) -> {
+                    Toast.makeText(
+                        context,
+                        "Please Enter Email",
+                        Toast.LENGTH_LONG
+                    ).show()
+                }
+
+                TextUtils.isEmpty(password_rigster.text.toString().trim { it <= ' ' }) -> {
+                    Toast.makeText(
+                        context,
+                        "Please Enter Password",
+                        Toast.LENGTH_LONG
+                    ).show()
 
 
-                FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password)
-                    .addOnCompleteListener { task ->
-
-                        // if the registration is sucessfully done
-                        if (task.isSuccessful) {
-                            //firebase register user
-                            val firebaseUser: FirebaseUser = task.result!!.user!!
-
-                            Toast.makeText(
-                                context,
-                                "You were registered succsessfuly",
-                                Toast.LENGTH_LONG
-                            ).show()
-
-                            //++++++++++++++++++++++++++
-
-                            val usernameData = name_register.text.toString()
-                            val emailData = email_register.text.toString()
-                            val user = Users(emailData, usernameData)
-                            saveUsers(user)
+                }
+                else -> {
+                    val email: String = email_register.text.toString().trim { it <= ' ' }
+                    val password: String = password_rigster.text.toString().trim { it <= ' ' }
 
 
-                            //++++++++++++++++++++++
-                        } else {
-                            // if the registreation is not succsesful then show error massage
-                            Toast.makeText(
-                                context,
-                                task.exception!!.message.toString(),
-                                Toast.LENGTH_LONG
-                            ).show()
+                    FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password)
+                        .addOnCompleteListener { task ->
+
+                            // if the registration is sucessfully done
+                            if (task.isSuccessful) {
+                                //firebase register user
+                                val firebaseUser: FirebaseUser = task.result!!.user!!
+
+                                Toast.makeText(
+                                    context,
+                                    "You were registered succsessfuly",
+                                    Toast.LENGTH_LONG
+                                ).show()
+
+                                //++++++++++++++++++++++++++
+
+                                val usernameData = name_register.text.toString()
+                                val emailData = email_register.text.toString()
+                                val user = Users(emailData, usernameData)
+                                saveUsers(user)
+
+
+                                //++++++++++++++++++++++
+                            } else {
+                                // if the registreation is not succsesful then show error massage
+                                Toast.makeText(
+                                    context,
+                                    task.exception!!.message.toString(),
+                                    Toast.LENGTH_LONG
+                                ).show()
+                            }
                         }
-                    }
+                }
             }
         }
     }
+}
 
-    }
 
