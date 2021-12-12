@@ -3,8 +3,31 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/DELL/AndroidStudioProjects/KidsLearning/app/src/main/res/layout/fragment_login.xml" value="0.1" />
+        <entry key="..\:/Users/DELL/AndroidStudioProjects/KidsLearning/app/src/main/res/drawable-v24/arrowbackbutton.xml" value="0.20555555555555555" />
+        <entry key="..\:/Users/DELL/AndroidStudioProjects/KidsLearning/app/src/main/res/drawable-v24/backgroundblue.xml" value="0.20555555555555555" />
+        <entry key="..\:/Users/DELL/AndroidStudioProjects/KidsLearning/app/src/main/res/drawable-v24/buttonsoundwarna.xml" value="0.20555555555555555" />
+        <entry key="..\:/Users/DELL/AndroidStudioProjects/KidsLearning/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2101851851851852" />
+        <entry key="..\:/Users/DELL/AndroidStudioProjects/KidsLearning/app/src/main/res/drawable-v24/soundgreen.xml" value="0.20555555555555555" />
+        <entry key="..\:/Users/DELL/AndroidStudioProjects/KidsLearning/app/src/main/res/drawable/backarrow.xml" value="0.2101851851851852" />
+        <entry key="..\:/Users/DELL/AndroidStudioProjects/KidsLearning/app/src/main/res/drawable/heart.xml" value="0.2101851851851852" />
+        <entry key="..\:/Users/DELL/AndroidStudioProjects/KidsLearning/app/src/main/res/drawable/ic_cancel.xml" value="0.2101851851851852" />
+        <entry key="..\:/Users/DELL/AndroidStudioProjects/KidsLearning/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2101851851851852" />
+        <entry key="..\:/Users/DELL/AndroidStudioProjects/KidsLearning/app/src/main/res/drawable/main_back.xml" value="0.2101851851851852" />
+        <entry key="..\:/Users/DELL/AndroidStudioProjects/KidsLearning/app/src/main/res/drawable/search.xml" value="0.2101851851851852" />
+        <entry key="..\:/Users/DELL/AndroidStudioProjects/KidsLearning/app/src/main/res/layout/activity_main.xml" value="0.1933876811594203" />
+        <entry key="..\:/Users/DELL/AndroidStudioProjects/KidsLearning/app/src/main/res/layout/fragment_about.xml" value="0.1766304347826087" />
+        <entry key="..\:/Users/DELL/AndroidStudioProjects/KidsLearning/app/src/main/res/layout/fragment_alphabet.xml" value="0.1933876811594203" />
+        <entry key="..\:/Users/DELL/AndroidStudioProjects/KidsLearning/app/src/main/res/layout/fragment_color.xml" value="0.1766304347826087" />
+        <entry key="..\:/Users/DELL/AndroidStudioProjects/KidsLearning/app/src/main/res/layout/fragment_for_mom.xml" value="0.1" />
+        <entry key="..\:/Users/DELL/AndroidStudioProjects/KidsLearning/app/src/main/res/layout/fragment_home.xml" value="0.25" />
+        <entry key="..\:/Users/DELL/AndroidStudioProjects/KidsLearning/app/src/main/res/layout/fragment_home_item.xml" value="0.1933876811594203" />
+        <entry key="..\:/Users/DELL/AndroidStudioProjects/KidsLearning/app/src/main/res/layout/fragment_login.xml" value="0.18" />
         <entry key="..\:/Users/DELL/AndroidStudioProjects/KidsLearning/app/src/main/res/layout/fragment_register.xml" value="0.22" />
+        <entry key="..\:/Users/DELL/AndroidStudioProjects/KidsLearning/app/src/main/res/layout/fragment_splash.xml" value="0.19746376811594202" />
+        <entry key="..\:/Users/DELL/AndroidStudioProjects/KidsLearning/app/src/main/res/layout/item_alphabet.xml" value="0.1933876811594203" />
+        <entry key="..\:/Users/DELL/AndroidStudioProjects/KidsLearning/app/src/main/res/layout/item_list.xml" value="0.1933876811594203" />
+        <entry key="..\:/Users/DELL/AndroidStudioProjects/KidsLearning/app/src/main/res/layout/show_alphabet.xml" value="0.1933876811594203" />
+        <entry key="..\:/Users/DELL/AndroidStudioProjects/KidsLearning/app/src/main/res/layout/show_item.xml" value="0.1933876811594203" />
       </map>
     </option>
   </component>

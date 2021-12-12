@@ -3,17 +3,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorForBackground"
     tools:context=".logIn.login">
 
-    <TextView
+    <ImageView
         android:id="@+id/tv_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/app_name"
-        android:textSize="50sp"
+        android:layout_width="364dp"
+        android:layout_height="236dp"
         android:layout_marginStart="25dp"
         android:layout_marginBottom="10dp"
-    />
+        android:src="@drawable/logo1" />
 
 
 
@@ -48,25 +47,30 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/et_password"
         android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
         android:layout_marginTop="15dp"
-        android:textColor="@android:color/white"
-        android:text="@string/login"/>
+        android:layout_marginRight="20dp"
+        android:backgroundTint="@color/colorBlueDark"
+
+        android:text="@string/login"
+        android:textColor="@android:color/white" />
+
 
     <ImageView
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_above="@id/swipeRight"
-        android:layout_centerHorizontal="true" />
+        android:layout_width="358dp"
+        android:layout_height="323dp"
+
+        android:layout_above="@id/toRegister"
+        android:layout_marginBottom="-38dp"
+        android:src="@drawable/logo2" />
 
     <TextView
-        android:id="@+id/swipeRight"
+        android:id="@+id/toRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/swipe_left_for_register"
-        android:textSize="15sp"
-        android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="20dp"/>
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:text="@string/swipe_left_for_register"
+        android:textSize="15sp" />
 
 </RelativeLayout>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/splash">
+
+    <fragment
+        android:id="@+id/login"
+        android:name="com.roula.kidslearning.logIn.login"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_login_to_register"
+            app:destination="@id/register" />
+        <action
+            android:id="@+id/action_login_to_home2"
+            app:destination="@id/home2" />
+    </fragment>
+    <fragment
+        android:id="@+id/register"
+        android:name="com.roula.kidslearning.logIn.Register"
+        android:label="fragment_register"
+        tools:layout="@layout/fragment_register" >
+        <action
+            android:id="@+id/action_register_to_home2"
+            app:destination="@id/home2" />
+    </fragment>
+    <fragment
+        android:id="@+id/home2"
+        android:name="com.roula.kidslearning.learning.Home"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_home2_to_alphabet"
+            app:destination="@id/alphabet" />
+        <action
+            android:id="@+id/action_home2_to_forMom"
+            app:destination="@id/forMom" />
+        <action
+            android:id="@+id/action_home2_to_about"
+            app:destination="@id/about" />
+        <action
+            android:id="@+id/action_home2_to_color"
+            app:destination="@id/color" />
+    </fragment>
+    <fragment
+        android:id="@+id/alphabet"
+        android:name="com.roula.kidslearning.learning.Alphabet"
+        android:label="fragment_alphabet"
+        tools:layout="@layout/fragment_alphabet" />
+    <fragment
+        android:id="@+id/forMom"
+        android:name="com.roula.kidslearning.learning.ForMom"
+        android:label="fragment_for_mom"
+        tools:layout="@layout/fragment_for_mom" />
+    <fragment
+        android:id="@+id/splash"
+        android:name="com.roula.kidslearning.logIn.Splash"
+        android:label="fragment_splash"
+        tools:layout="@layout/fragment_splash" >
+        <action
+            android:id="@+id/action_splash_to_login"
+            app:destination="@id/login" />
+    </fragment>
+    <fragment
+        android:id="@+id/about"
+        android:name="com.roula.kidslearning.learning.About"
+        android:label="fragment_about"
+        tools:layout="@layout/fragment_about" />
+    <fragment
+        android:id="@+id/color"
+        android:name="com.roula.kidslearning.learning.Color"
+        android:label="fragment_color"
+        tools:layout="@layout/fragment_color" />
+</navigation>

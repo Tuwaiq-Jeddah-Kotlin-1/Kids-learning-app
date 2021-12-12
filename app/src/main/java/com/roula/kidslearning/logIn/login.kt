@@ -10,6 +10,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.navigation.fragment.findNavController
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.roula.kidslearning.R
@@ -21,6 +22,7 @@ class login : Fragment() {
     private lateinit var email: EditText
     private lateinit var password: EditText
     private lateinit var btn_login: Button
+    private lateinit var toRegister: TextView
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -45,6 +47,11 @@ class login : Fragment() {
         password = view.findViewById(R.id.et_password)
         btn_login = view.findViewById(R.id.btn_login)
 
+        toRegister = view.findViewById(R.id.toRegister)
+        toRegister.setOnClickListener {
+            findNavController().navigate(R.id.action_login_to_register)
+
+        }
         btn_login.setOnClickListener {
 
             when {
