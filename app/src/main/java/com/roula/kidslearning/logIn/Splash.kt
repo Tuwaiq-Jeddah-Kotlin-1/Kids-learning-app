@@ -2,6 +2,7 @@ package com.roula.kidslearning.logIn
 
 import android.os.Bundle
 import android.os.Handler
+import android.os.Looper
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -33,9 +34,9 @@ class Splash : Fragment() {
         logo = view.findViewById(R.id.logo)
         // Setting up two animations with their respective time
         logo.startAnimation(AnimationUtils.loadAnimation(context,R.anim.splash_in))
-        Handler().postDelayed({
+        Handler(Looper.getMainLooper()).postDelayed({
             logo.startAnimation(AnimationUtils.loadAnimation(context,R.anim.splash_out))
-            Handler().postDelayed({
+            Handler(Looper.getMainLooper()).postDelayed({
                 logo.visibility = View.GONE
 
                findNavController().navigate(R.id.action_splash_to_login)
