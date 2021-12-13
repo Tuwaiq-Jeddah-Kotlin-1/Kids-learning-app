@@ -38,8 +38,8 @@
             android:id="@+id/action_home2_to_forMom"
             app:destination="@id/forMom" />
         <action
-            android:id="@+id/action_home2_to_about"
-            app:destination="@id/about" />
+            android:id="@+id/action_home2_to_settings"
+            app:destination="@id/settings" />
         <action
             android:id="@+id/action_home2_to_color"
             app:destination="@id/color" />
@@ -64,7 +64,7 @@
             app:destination="@id/login" />
     </fragment>
     <fragment
-        android:id="@+id/about"
+        android:id="@+id/settings"
         android:name="com.roula.kidslearning.learning.About"
         android:label="fragment_about"
         tools:layout="@layout/fragment_settings" />
