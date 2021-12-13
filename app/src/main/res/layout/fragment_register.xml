@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/colorForBackground"
     tools:context=".logIn.Register">
     <TextView
         android:id="@+id/tv_logo"
@@ -69,6 +70,7 @@
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:layout_marginBottom="30dp"
+            android:backgroundTint="@color/colorBlueDark"
             android:text="@string/register"
             android:textColor="@android:color/white" />
 
