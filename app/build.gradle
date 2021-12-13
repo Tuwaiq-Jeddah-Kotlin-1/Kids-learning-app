@@ -34,6 +34,10 @@ android {
 }
 
 dependencies {
+
+
+    //Coil library
+    implementation("io.coil-kt:coil:1.4.0")
 // Retrofit library
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation 'com.squareup.retrofit2:converter-scalars:2.9.0'

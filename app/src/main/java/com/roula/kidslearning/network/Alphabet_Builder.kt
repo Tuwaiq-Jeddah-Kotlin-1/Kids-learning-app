@@ -3,8 +3,8 @@ package com.roula.kidslearning.network
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class Alphabet_Builder {
-    private const val BASE_URL = "https://api.themoviedb.org/3/"
+object Alphabet_Builder {
+    private const val BASE_URL = "https://61b3591aaf5ff70017ca1e9f.mockapi.io/"
     private fun retrofit(): Retrofit = Retrofit.Builder()
         .baseUrl(BASE_URL)
         .addConverterFactory(GsonConverterFactory.create())
