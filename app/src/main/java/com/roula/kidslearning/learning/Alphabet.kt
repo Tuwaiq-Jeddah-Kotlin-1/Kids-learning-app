@@ -39,9 +39,8 @@ class Alphabet : Fragment() {
         recyclerView = view.findViewById(R.id.alphaRecycler)
         recyclerView.layoutManager = GridLayoutManager(context, 2)
         viewModel = ViewModelProvider(this).get(AlphabetVM::class.java)
-       // recyclerView.layoutManager = LinearLayoutManager(this.context)
         viewModel.fetchInterestingList().observe(viewLifecycleOwner, Observer{
-            recyclerView.adapter = Alphabet_Adapter(it)
+            recyclerView.adapter = Alphabet_Adapter(requireContext(),it)
         })
 
     }
