@@ -2,6 +2,8 @@ package com.roula.kidslearning.logIn
 
 import android.app.Activity
 import android.app.AlertDialog
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Patterns
@@ -26,6 +28,8 @@ class login : Fragment() {
     private lateinit var btn_login: Button
     private lateinit var toRegister: TextView
     private lateinit var forgotePass: TextView
+    private lateinit var myShared :SharedPreferences
+
 
 
 
@@ -118,8 +122,9 @@ class login : Fragment() {
                                     "Welcome",
                                     Toast.LENGTH_LONG
                                 ).show()
-
                                 findNavController().navigate(R.id.action_login_to_home2)
+
+
 
                             } else {
                                 // if the registreation is not succsesful then show error massage
@@ -128,6 +133,14 @@ class login : Fragment() {
                                     task.exception!!.message.toString(),
                                     Toast.LENGTH_LONG
                                 ).show()
+                                myShared = requireContext().getSharedPreferences("meshared", 0)
+                                var editor : SharedPreferences.Editor = myShared.edit()
+                                var userData = userName.toString()
+                                var emilData = email
+                                editor.putString("emile", emilData)
+                                editor.commit()
+
+
                             } } } } } }
     private fun forgotPassword (username: EditText){
         if (username.text.toString().isEmpty()){

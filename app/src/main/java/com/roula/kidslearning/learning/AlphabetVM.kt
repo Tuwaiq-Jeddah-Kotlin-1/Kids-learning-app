@@ -18,7 +18,7 @@ class AlphabetVM : ViewModel() {
                 alphabets.postValue(repo.fetchInterestingList())
             }
             catch (e: Throwable) {
-                Log.e("Movies Image","Movies Image Problem: ${e.localizedMessage}")
+                Log.e(" Alphabet Image","Image Problem: ${e.localizedMessage}")
             }
         }
         return alphabets
