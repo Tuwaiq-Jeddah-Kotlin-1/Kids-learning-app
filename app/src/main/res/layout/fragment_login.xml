@@ -60,24 +60,34 @@
         android:layout_marginTop="15dp"
         android:layout_marginRight="20dp"
         android:backgroundTint="@color/colorBlueDark"
-
         android:text="@string/login"
         android:textColor="@android:color/white" />
+
+<CheckBox
+    android:id="@+id/check_remeber"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignTop="@+id/btn_login"
+    android:layout_alignStart="@+id/btn_login"
+    android:text="Remember_me"
+    android:textSize="20sp"
+    android:layout_marginTop="30dp" />
 
     <TextView
         android:id="@+id/tv_forgotPass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Forgot password?"
-        android:textSize="20sp"
-        android:layout_alignEnd="@+id/btn_login"
         android:layout_alignTop="@+id/btn_login"
+        android:layout_alignEnd="@+id/btn_login"
         android:layout_marginTop="40dp"
-        android:textAllCaps="false" />
+        android:text="Forgot password?"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="20sp" />
 
     <ImageView
-        android:layout_width="358dp"
-        android:layout_height="323dp"
+        android:layout_width="260dp"
+        android:layout_height="260dp"
 
         android:layout_above="@id/toRegister"
         android:layout_marginBottom="-38dp"

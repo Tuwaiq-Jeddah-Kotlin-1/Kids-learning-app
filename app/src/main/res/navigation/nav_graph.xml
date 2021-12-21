@@ -65,12 +65,20 @@
     </fragment>
     <fragment
         android:id="@+id/settings"
-        android:name="com.roula.kidslearning.learning.About"
+        android:name="com.roula.kidslearning.learning.Setting"
         android:label="fragment_about"
-        tools:layout="@layout/fragment_settings" />
+        tools:layout="@layout/fragment_settings" >
+        <action
+            android:id="@+id/action_settings_to_login"
+            app:destination="@id/login" />
+    </fragment>
     <fragment
         android:id="@+id/color"
         android:name="com.roula.kidslearning.learning.Color"
         android:label="fragment_color"
-        tools:layout="@layout/fragment_color" />
+        tools:layout="@layout/fragment_color" >
+        <action
+            android:id="@+id/action_color_to_home2"
+            app:destination="@id/home2" />
+    </fragment>
 </navigation>

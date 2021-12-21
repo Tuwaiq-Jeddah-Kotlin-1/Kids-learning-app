@@ -1,6 +1,7 @@
 package com.roula.kidslearning.learning
 
 import Alphabet_data
+import android.app.AlertDialog
 import android.content.Context
 import android.speech.tts.TextToSpeech
 import android.util.Log
@@ -17,12 +18,13 @@ import java.util.*
 class Alphabet_Adapter (val c :Context,val alphabetData: List<Alphabet_data> ) : RecyclerView.Adapter<CustomHolder>() , TextToSpeech.OnInitListener {
     private lateinit var mTTS : TextToSpeech
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CustomHolder {
+        mTTS = TextToSpeech(c,this)
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_alphabet, parent, false)
         return CustomHolder(view)
+
     }
 
     override fun onBindViewHolder(holder: CustomHolder, position: Int) {
-        mTTS = TextToSpeech(c,this)
 
         val alphabets = alphabetData[position]
         holder.descriptionAlphabet.text = alphabets.description
@@ -31,7 +33,7 @@ class Alphabet_Adapter (val c :Context,val alphabetData: List<Alphabet_data> ) :
                 /**set speak*/
                 speak(alphabets.description)
                 /**set Dialog*/
-               // showAlpha(alphabets.picture,alphabets.description)
+              //  showAlpha(alphabets.picture,alphabets.description)
 
         }
 
@@ -40,7 +42,7 @@ class Alphabet_Adapter (val c :Context,val alphabetData: List<Alphabet_data> ) :
     override fun getItemCount(): Int {
          return alphabetData.size
     }
-
+//animation
 //    private fun showAlpha(img: String, name: String) {
 //        val inflater = LayoutInflater.from(c)
 //        val setView = inflater.inflate(R.layout.show_alphabet,null)
@@ -49,7 +51,7 @@ class Alphabet_Adapter (val c :Context,val alphabetData: List<Alphabet_data> ) :
 //        val imgAlpha = setView.findViewById<ImageView>(R.id.alphaImgs)
 //        val btnCancel = setView.findViewById<ImageView>(R.id.btnCancel)
 //        nameAlpha.text = name
-//        imgAlpha.setImageResource(img.toInt())
+//        imgAlpha.setImageResource(img)
 //        val showDialog = AlertDialog.Builder(c)
 //        showDialog.setCancelable(true)
 //        showDialog.setView(setView)
@@ -61,8 +63,8 @@ class Alphabet_Adapter (val c :Context,val alphabetData: List<Alphabet_data> ) :
 
     private fun speak(name: String) {
         /**set TextToSpeech*/
-       // mTTS.setPitch(1f)
-       // mTTS.setSpeechRate(1.1f)
+        mTTS.setPitch(1f)
+        mTTS.setSpeechRate(1.1f)
         mTTS.speak(name,TextToSpeech.QUEUE_FLUSH,null,"")
 
     }

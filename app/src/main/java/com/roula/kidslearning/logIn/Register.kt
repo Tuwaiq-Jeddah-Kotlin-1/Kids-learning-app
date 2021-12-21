@@ -102,7 +102,7 @@ class Register : Fragment() {
                             // if the registration is sucessfully done
                             if (task.isSuccessful) {
                                 //firebase register user
-                                val firebaseUser: FirebaseUser = task.result!!.user!!
+                             //   val firebaseUser: FirebaseUser = task.result!!.user!!
 
                                 Toast.makeText(
                                     context,
