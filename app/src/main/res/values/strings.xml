@@ -10,4 +10,8 @@
     <string name="register">Register</string>
     <string name="your_name">Full Name</string>
     <string name="user_name">User Name</string>
+    <string-array name="language">
+        <item>Arabic</item>
+        <item>English</item>
+    </string-array>
 </resources>

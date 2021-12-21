@@ -5,6 +5,7 @@
       <map>
         <entry key="..\:/Users/DELL/AndroidStudioProjects/KidsLearning/app/src/main/res/drawable-v24/arrowbackbutton.xml" value="0.20555555555555555" />
         <entry key="..\:/Users/DELL/AndroidStudioProjects/KidsLearning/app/src/main/res/drawable-v24/backgroundblue.xml" value="0.20555555555555555" />
+        <entry key="..\:/Users/DELL/AndroidStudioProjects/KidsLearning/app/src/main/res/drawable-v24/backgroundred.xml" value="0.2203125" />
         <entry key="..\:/Users/DELL/AndroidStudioProjects/KidsLearning/app/src/main/res/drawable-v24/buttonsoundwarna.xml" value="0.20555555555555555" />
         <entry key="..\:/Users/DELL/AndroidStudioProjects/KidsLearning/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2101851851851852" />
         <entry key="..\:/Users/DELL/AndroidStudioProjects/KidsLearning/app/src/main/res/drawable-v24/soundgreen.xml" value="0.20555555555555555" />
@@ -25,13 +26,14 @@
         <entry key="..\:/Users/DELL/AndroidStudioProjects/KidsLearning/app/src/main/res/layout/fragment_home_item.xml" value="0.1933876811594203" />
         <entry key="..\:/Users/DELL/AndroidStudioProjects/KidsLearning/app/src/main/res/layout/fragment_login.xml" value="0.25" />
         <entry key="..\:/Users/DELL/AndroidStudioProjects/KidsLearning/app/src/main/res/layout/fragment_register.xml" value="0.22" />
-        <entry key="..\:/Users/DELL/AndroidStudioProjects/KidsLearning/app/src/main/res/layout/fragment_settings.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/DELL/AndroidStudioProjects/KidsLearning/app/src/main/res/layout/fragment_settings.xml" value="0.25" />
         <entry key="..\:/Users/DELL/AndroidStudioProjects/KidsLearning/app/src/main/res/layout/fragment_splash.xml" value="0.19746376811594202" />
         <entry key="..\:/Users/DELL/AndroidStudioProjects/KidsLearning/app/src/main/res/layout/item_alphabet.xml" value="0.33" />
         <entry key="..\:/Users/DELL/AndroidStudioProjects/KidsLearning/app/src/main/res/layout/item_list.xml" value="0.1933876811594203" />
         <entry key="..\:/Users/DELL/AndroidStudioProjects/KidsLearning/app/src/main/res/layout/show_alphabet.xml" value="0.1933876811594203" />
         <entry key="..\:/Users/DELL/AndroidStudioProjects/KidsLearning/app/src/main/res/layout/show_item.xml" value="0.1933876811594203" />
         <entry key="..\:/Users/DELL/AndroidStudioProjects/KidsLearning/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2203125" />
+        <entry key="..\:/Users/DELL/AppData/Local/Android/Sdk/platforms/android-31/data/res/layout/simple_spinner_item.xml" value="0.1" />
       </map>
     </option>
   </component>

@@ -1,32 +1,30 @@
 package com.roula.kidslearning.learning
 
+
+import android.media.MediaPlayer
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
+import android.widget.Button
+import android.widget.ImageButton
+import androidx.navigation.fragment.findNavController
 import com.roula.kidslearning.R
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [Color.newInstance] factory method to
- * create an instance of this fragment.
- */
 class Color : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+
+    var color = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+
         }
     }
 
@@ -36,26 +34,86 @@ class Color : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_color, container, false)
+
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment Color.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            Color().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+        val  buttonback = view.findViewById<Button>(R.id.buttonback)
+        val  soundgreen = view.findViewById<ImageButton>(R.id.soundgreen)
+        val  soundblue = view.findViewById<ImageButton>(R.id.soundblue)
+        val  soundred = view.findViewById<ImageButton>(R.id.soundred)
+        val  soundyellow = view.findViewById<ImageButton>(R.id.soundyellow)
+
+
+        var scaleUp = AnimationUtils.loadAnimation(context,R.anim.scale_up)
+
+
+        buttonback.setOnClickListener {
+
+            findNavController().navigate(R.id.action_color_to_home2)
+        }
+        soundblue.setOnClickListener {
+
+            GlobalScope.launch {
+                soundblue.startAnimation(scaleUp)
+                delay(500)
+            }
+           color = "Blue"
+           soundOn()
+       }
+        soundgreen.setOnClickListener {
+
+            GlobalScope.launch {
+                soundgreen.startAnimation(scaleUp)
+                delay(500) }
+            color = "Green"
+            soundOn()
+        }
+        soundred.setOnClickListener {
+            GlobalScope.launch {
+                soundred.startAnimation(scaleUp)
+                delay(500)
+            }
+            color = "Red"
+            soundOn()
+        }
+        soundyellow.setOnClickListener {
+            GlobalScope.launch {
+                soundyellow.startAnimation(scaleUp)
+                delay(500)
+            }
+            color = "Yellow"
+            soundOn()
+        }
+    }
+    fun soundOn(){
+        when (color) {
+            "Blue" -> {
+                val player = MediaPlayer.create(context, R.raw.blue)
+                player.start()
+                player.setOnCompletionListener {
+                    player.release()
                 }
             }
-    }
-}
+            "Red" -> {
+                val player = MediaPlayer.create(context, R.raw.red)
+                player.start()
+                player.setOnCompletionListener {
+                    player.release()
+                }
+            }
+            "Green" -> {
+                val player = MediaPlayer.create(context, R.raw.green)
+                player.start()
+                player.setOnCompletionListener {
+                    player.release()
+                }
+            }
+            else -> {
+                val player = MediaPlayer.create(context, R.raw.yellow)
+                player.start()
+                player.setOnCompletionListener {
+                    player.release()
+                } } } } }

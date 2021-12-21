@@ -1,6 +1,5 @@
 package com.roula.kidslearning.logIn
 
-import android.app.Activity
 import android.app.AlertDialog
 import android.content.Context
 import android.content.SharedPreferences
@@ -11,10 +10,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.navigation.fragment.findNavController
 import com.google.firebase.auth.FirebaseAuth
 import com.roula.kidslearning.R
@@ -28,7 +24,9 @@ class login : Fragment() {
     private lateinit var btn_login: Button
     private lateinit var toRegister: TextView
     private lateinit var forgotePass: TextView
+    private lateinit var remember : CheckBox
     private lateinit var myShared :SharedPreferences
+    var isRemember = false
 
 
 
@@ -57,6 +55,9 @@ class login : Fragment() {
         btn_login = view.findViewById(R.id.btn_login)
         forgotePass = view.findViewById(R.id.tv_forgotPass)
         toRegister = view.findViewById(R.id.toRegister)
+        remember = view.findViewById(R.id.check_remeber)
+
+
         forgotePass.setOnClickListener {
 
             val builder = AlertDialog.Builder (context)
@@ -76,6 +77,11 @@ class login : Fragment() {
         toRegister.setOnClickListener {
             findNavController().navigate(R.id.action_login_to_register)
 
+        }
+        myShared = requireContext().getSharedPreferences("SHARED_PREF", Context.MODE_PRIVATE)
+        isRemember = myShared.getBoolean("CHECKBOX", false)
+        if (isRemember){
+            findNavController().navigate(R.id.home2)
         }
         btn_login.setOnClickListener {
 
@@ -105,7 +111,7 @@ class login : Fragment() {
                 }
                 else -> {
                     val email: String = email.text.toString().trim { it <= ' ' }
-                   // val username: String = userName.text.toString().trim { it <= ' ' }
+                   val username: String = userName.text.toString().trim { it <= ' ' }
                     val password: String = password.text.toString().trim { it <= ' ' }
 
                     // create an instance and create a register with email and passwords
@@ -115,14 +121,28 @@ class login : Fragment() {
                             // if the registration is sucessfully done
                             if (task.isSuccessful) {
                                 //firebase register user
-                           //     val firebaseUser: FirebaseUser = task.result!!.user!!
+                             //  val firebaseUser: FirebaseUser = task.result!!.user!!
 
                                 Toast.makeText(
                                     context,
                                     "Welcome",
                                     Toast.LENGTH_LONG
                                 ).show()
-                                findNavController().navigate(R.id.action_login_to_home2)
+
+
+
+                                val editor : SharedPreferences.Editor = myShared.edit()
+                                val userPref = username
+                                val emilData = email
+                                val passwordPref = password
+                                val check: Boolean = remember.isChecked
+                                editor.putString("emile", emilData)
+                                editor.putString("user name", userPref)
+                                editor.putString("password", passwordPref)
+                                editor.putBoolean("CHECKBOX",check )
+                                editor.apply()
+                                Toast.makeText(context,"Information Saved!",Toast.LENGTH_LONG).show()
+                                findNavController().navigate(R.id.home2)
 
 
 
@@ -133,23 +153,18 @@ class login : Fragment() {
                                     task.exception!!.message.toString(),
                                     Toast.LENGTH_LONG
                                 ).show()
-                                myShared = requireContext().getSharedPreferences("meshared", 0)
-                                var editor : SharedPreferences.Editor = myShared.edit()
-                                var userData = userName.toString()
-                                var emilData = email
-                                editor.putString("emile", emilData)
-                                editor.commit()
+
 
 
                             } } } } } }
-    private fun forgotPassword (username: EditText){
-        if (username.text.toString().isEmpty()){
+    private fun forgotPassword (emil: EditText){
+        if (emil.text.toString().isEmpty()){
             return
         }
-        if (!Patterns.EMAIL_ADDRESS.matcher(username.text.toString()).matches()){
+        if (!Patterns.EMAIL_ADDRESS.matcher(emil.text.toString()).matches()){
             return
         }
-        FirebaseAuth.getInstance().sendPasswordResetEmail(username.text.toString())
+        FirebaseAuth.getInstance().sendPasswordResetEmail(emil.text.toString())
             .addOnCompleteListener { task ->
                 if(task.isSuccessful){
                     Toast.makeText(context,"Email sent.",Toast.LENGTH_SHORT).show()
