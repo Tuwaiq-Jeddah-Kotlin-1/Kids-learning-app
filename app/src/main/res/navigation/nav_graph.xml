@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/splash">
+    app:startDestination="@id/login">
 
     <fragment
         android:id="@+id/login"
@@ -15,6 +15,7 @@
             app:destination="@id/register" />
         <action
             android:id="@+id/action_login_to_home2"
+            app:popUpTo="@id/nav_graph"
             app:destination="@id/home2" />
     </fragment>
     <fragment
@@ -24,6 +25,7 @@
         tools:layout="@layout/fragment_register" >
         <action
             android:id="@+id/action_register_to_home2"
+            app:popUpTo="@id/nav_graph"
             app:destination="@id/home2" />
     </fragment>
     <fragment
@@ -53,7 +55,12 @@
         android:id="@+id/forMom"
         android:name="com.roula.kidslearning.learning.ForMom"
         android:label="fragment_for_mom"
-        tools:layout="@layout/fragment_for_mom" />
+        tools:layout="@layout/fragment_for_mom" >
+        <action
+            android:id="@+id/action_forMom_to_add_mom"
+            app:popUpTo="@id/nav_graph"
+            app:destination="@id/add_mom" />
+    </fragment>
     <fragment
         android:id="@+id/splash"
         android:name="com.roula.kidslearning.logIn.Splash"
@@ -80,5 +87,15 @@
         <action
             android:id="@+id/action_color_to_home2"
             app:destination="@id/home2" />
+    </fragment>
+    <fragment
+        android:id="@+id/add_mom"
+        android:name="com.roula.kidslearning.learning.Add_mom"
+        android:label="fragment_add_mom"
+        tools:layout="@layout/fragment_add_mom" >
+        <action
+            android:id="@+id/action_add_mom_to_forMom"
+            app:popUpTo="@id/nav_graph"
+            app:destination="@id/forMom" />
     </fragment>
 </navigation>

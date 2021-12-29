@@ -1,7 +1,6 @@
 package com.roula.kidslearning.learning
 
 import Alphabet_data
-import android.app.AlertDialog
 import android.content.Context
 import android.speech.tts.TextToSpeech
 import android.util.Log
@@ -64,7 +63,7 @@ class Alphabet_Adapter (val c :Context,val alphabetData: List<Alphabet_data> ) :
     private fun speak(name: String) {
         /**set TextToSpeech*/
         mTTS.setPitch(1f)
-        mTTS.setSpeechRate(1.1f)
+        mTTS.setSpeechRate(0.8f)
         mTTS.speak(name,TextToSpeech.QUEUE_FLUSH,null,"")
 
     }
@@ -85,7 +84,8 @@ class Alphabet_Adapter (val c :Context,val alphabetData: List<Alphabet_data> ) :
             }
 
         }
-    }
+
+}
 
 
 

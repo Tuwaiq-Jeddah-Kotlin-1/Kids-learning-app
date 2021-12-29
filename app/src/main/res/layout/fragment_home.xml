@@ -14,13 +14,13 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_weight="1"
-        android:gravity="bottom"
+        android:gravity="center"
         android:background="@drawable/header_bg"
         android:padding="12dp"
         >
         <ImageView
             android:id="@+id/tv_title"
-            android:layout_width="364dp"
+            android:layout_width="200dp"
             android:layout_height="200dp"
             android:src="@drawable/logo1" />
 
@@ -30,13 +30,11 @@
             android:layout_height="wrap_content"
             android:text="Welcome,Kids"
             android:textColor="@color/colorBlueDark"
-            android:textSize="25sp"
+            android:textSize="18sp"
             />
 
     </LinearLayout>
 
-
-    <!--Creating the menu grid button-->
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -77,7 +75,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Alphabet"
+                        android:text="@string/alphabet"
                         android:textAlignment="center"
                         android:fontFamily="@font/berlinsans"
 
@@ -152,7 +150,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Color"
+                        android:text="@string/color"
                         android:fontFamily="@font/berlinsans"
                         android:textAlignment="center" />
                 </LinearLayout>
@@ -181,7 +179,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Settings"
+                        android:text="@string/settings"
                         android:fontFamily="@font/berlinsans"
                         android:textAlignment="center"
                         />
