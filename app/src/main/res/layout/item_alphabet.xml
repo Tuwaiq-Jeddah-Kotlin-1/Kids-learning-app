@@ -6,7 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:card_view="http://schemas.android.com/tools"
     app:cardCornerRadius="8dp"
-    app:cardElevation="3dp"
+    app:cardElevation="10dp"
     android:layout_margin="5dp"
     android:padding="5dp"
     app:cardUseCompatPadding="true"

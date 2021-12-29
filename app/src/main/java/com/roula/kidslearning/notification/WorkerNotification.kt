@@ -1,8 +1,6 @@
-package com.example.truthordaresaudi
+package com.roula.kidslearning.notification
 
 import android.content.Context
-import androidx.core.app.NotificationCompat
-import androidx.core.app.NotificationManagerCompat
 import androidx.work.Worker
 import androidx.work.WorkerParameters
 

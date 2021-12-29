@@ -1,4 +1,4 @@
-package com.example.truthordaresaudi
+package com.roula.kidslearning.notification
 
 import android.app.NotificationChannel
 import android.app.NotificationManager
@@ -8,6 +8,7 @@ import android.content.Intent
 import android.os.Build
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
+import com.roula.kidslearning.MainActivity
 
 private const val CHANNEL_ID = "anime_channel_id"
 private const val NOTIFICATION_ID = 1
@@ -15,7 +16,7 @@ private const val NOTIFICATION_ID = 1
 class NotificationHelper(val context: Context) {
     fun createNotification(title: String, message: String){
         createNotificationChannel()
-        val intent= Intent(context, MyMainActivity::class.java).apply {
+        val intent= Intent(context, MainActivity::class.java).apply {
             flags= Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         }
         val pendingIntent = PendingIntent.getActivity(context,0,intent,0)
@@ -34,7 +35,8 @@ class NotificationHelper(val context: Context) {
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
 
             val importance = NotificationManager.IMPORTANCE_DEFAULT
-            val channel = NotificationChannel(CHANNEL_ID,
+            val channel = NotificationChannel(
+                CHANNEL_ID,
                 CHANNEL_ID, importance).apply {
                 description = "Anime Channel description"
             }

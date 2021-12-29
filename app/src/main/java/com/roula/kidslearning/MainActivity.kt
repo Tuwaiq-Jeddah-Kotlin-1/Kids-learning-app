@@ -1,12 +1,13 @@
 package com.roula.kidslearning
 
+import android.app.Activity
+import android.content.Context
+import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
-import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.setupWithNavController
-import com.example.truthordaresaudi.NotificationRepo
-import com.google.android.material.bottomnavigation.BottomNavigationView
+import androidx.appcompat.app.AppCompatDelegate
+import com.roula.kidslearning.notification.NotificationRepo
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -16,5 +17,32 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.hide()
 
         NotificationRepo().myNotification(this)
+        val sharedPreferences = getSharedPreferences("SHARED_PREF", Context.MODE_PRIVATE)
+
+//check the dark mood user option
+        if (sharedPreferences.getBoolean("DARK_MOOD", true)) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+        } else {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+        }
+//check localization user option
+        if (sharedPreferences.getString("LOCALE","") == "ar") {
+            setLocate(this,"ar")
+        } else {
+            setLocate(this,"en")
+        }
+    }
+
+    private fun setLocate(activity: Activity, Lang: String) {
+        val locale = Locale(Lang)
+        Locale.setDefault(locale)
+        val resources = activity.resources
+       val  config: Configuration = resources.configuration
+        config.setLocale(locale)
+        resources.updateConfiguration(config, resources.displayMetrics)
+//        val editor = requireContext().getSharedPreferences("Settings", Context.MODE_PRIVATE).edit()
+//        editor.putString("My_Lang", Lang)
+//        editor.apply()
     }
 }
+

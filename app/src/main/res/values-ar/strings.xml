@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">KidsLearning</string>
+    <string name="login">تسجيل دخول</string>
+    <string name="swipe_left_for_register">مستخدم جديد؟ تسجيل</string>
+    <string name="password">الرقم السري</string>
+    <string name="e_mail">الإيميل</string>
+    <string name="swipe_right_for_login">لتسجيل الدخول</string>
+    <string name="register">تسجيل</string>
+    <string name="your_name">الأسم الكامل</string>
+    <string name="user_name">اسم السمتخدم</string>
+    <string name="alphabet">الأحرف</string>
+    <string name="color">الألوان</string>
+    <string name="settings">الإعدادات</string>
+    <string name="remember_me">تذكرني</string>
+    <string name="forgot_password">هل نسيت كلمة المرور؟</string>
+    <string name="dark_mode">الوضع الليلي</string>
+    <string name="language">تغيير اللغة</string>
+    <string name="please_share_with_your_friends">يرجى مشاركتها مع اصدقائك</string>
+    <string name="logout">تسجيل خروج</string>
+</resources>
