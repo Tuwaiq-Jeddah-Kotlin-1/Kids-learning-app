@@ -34,15 +34,14 @@ class Splash : Fragment() {
         logo = view.findViewById(R.id.logo)
         // Setting up two animations with their respective time
         logo.startAnimation(AnimationUtils.loadAnimation(context,R.anim.splash_in))
-        Handler(Looper.getMainLooper()).postDelayed({
-            logo.startAnimation(AnimationUtils.loadAnimation(context,R.anim.splash_out))
+        Handler(Looper.getMainLooper()).postDelayed({ logo.startAnimation(AnimationUtils.loadAnimation(context,R.anim.splash_out))
             Handler(Looper.getMainLooper()).postDelayed({
                 logo.visibility = View.GONE
 
                findNavController().navigate(R.id.action_splash_to_login)
 
             },500)
-        },1500)
+        },1800)
 
     }
 }

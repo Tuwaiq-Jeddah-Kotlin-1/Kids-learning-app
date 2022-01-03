@@ -26,6 +26,7 @@ class ForMom : Fragment() {
     private lateinit var plus: FloatingActionButton
     private lateinit var viewModel: AlphabetVM
     private lateinit var mAdapter: Mom_Adapter
+    private  var listSize: Int = 0
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -56,6 +57,7 @@ class ForMom : Fragment() {
         viewModel.fetchText(viewLifecycleOwner).observe(viewLifecycleOwner, {
 
             mAdapter= Mom_Adapter(requireContext(),it,viewModel)
+            listSize = it.size
             recyclerView.adapter = mAdapter
 
         })
@@ -72,10 +74,9 @@ class ForMom : Fragment() {
 
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
                 mAdapter.deleteText(viewHolder.adapterPosition)
-                //mAdapter.notifyItemRemoved(viewHolder.adapterPosition)
                 //recyclerView.adapter!!.notifyItemRemoved(viewHolder.position)
                 //recyclerView.adapter!!.notifyItemRemoved(viewHolder.adapterPosition)
-
+              recyclerView.adapter = mAdapter
                 Toast.makeText(context,"deleted", Toast.LENGTH_SHORT).show()
             }
 

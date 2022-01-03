@@ -1,45 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:card_view="http://schemas.android.com/tools"
-    app:cardCornerRadius="8dp"
-    app:cardElevation="10dp"
-    android:layout_margin="5dp"
-    android:padding="5dp"
-    app:cardUseCompatPadding="true"
-    card_view:cardCornerRAdius="5dp"
-    card_view:ignore="MissingDefaultResource">
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="160dp"
-        android:layout_height="250dp">
-        <ImageView
-            android:layout_weight="1"
-            android:id="@+id/alphaImg"
-            android:src="@drawable/ic_launcher_background"
-            android:scaleType="fitXY"
-            android:layout_gravity="center"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-        <TextView
-            android:id="@+id/alphaDescription"
-            android:text="A For Apple"
-            android:layout_gravity="center"
-            android:textSize="14sp"
-            android:textStyle="bold"
-            android:gravity="center"
-            android:textColor="@color/white"
-            android:background="@color/colorBlueDark"
-            android:paddingLeft="15dp"
-            android:paddingRight="15dp"
-            android:paddingBottom="5dp"
-            android:paddingTop="5dp"
-            android:elevation="15dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="8dp">
 
-    </LinearLayout>
-</androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="8dp"
+        app:cardUseCompatPadding="true"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:cardCornerRAdius="5dp"
+        tools:ignore="MissingConstraints,MissingDefaultResource"
+        tools:layout_editor_absoluteY="8dp">
+
+        <LinearLayout
+            android:layout_width="160dp"
+            android:layout_height="250dp"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/alphaImg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_launcher_background" />
+
+            <TextView
+                android:id="@+id/alphaDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@color/colorBlueDark"
+                android:elevation="15dp"
+                android:gravity="center"
+                android:paddingStart="15dp"
+                android:paddingTop="5dp"
+                android:paddingEnd="15dp"
+                android:paddingBottom="5dp"
+                android:text="A For Apple"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>

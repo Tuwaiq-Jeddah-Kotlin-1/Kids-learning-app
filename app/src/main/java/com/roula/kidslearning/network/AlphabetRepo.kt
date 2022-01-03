@@ -52,17 +52,19 @@ class AlphabetRepo {
     suspend fun saveText(textMom: Mom) = withContext(Dispatchers.IO) {
         db.collection("Users").document("$uid").collection("Mom").document(textMom.textKids)
             .set(textMom)
-            .addOnSuccessListener {
-                Log.d("TAG", "DocumentSnapshot successfully written!")
-            }
-            .addOnFailureListener { e ->
-                Log.w("TAG", "Error writing document", e)
-            }
+//            .addOnSuccessListener {
+//                Log.d("TAG", "DocumentSnapshot successfully written!")
+//            }
+//            .addOnFailureListener { e ->
+//                Log.w("TAG", "Error writing document", e)
+//            }
     }
 
     suspend fun updateText(textMom: Mom) = withContext(Dispatchers.IO){
+        db.collection("Users").document("$uid").collection("Mom").document(textMom.oldTextKids)
+            .delete()
         db.collection("Users").document("$uid").collection("Mom").document(textMom.textKids)
-            .set(textMom, SetOptions.merge())
+            .set(textMom)
 
     }
     suspend fun deleteText(textMom: Mom) = withContext(Dispatchers.IO){

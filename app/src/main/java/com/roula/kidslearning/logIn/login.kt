@@ -60,7 +60,7 @@ class login : Fragment() {
 
         forgotePass.setOnClickListener {
 
-            val builder = AlertDialog.Builder (context)
+            val builder = AlertDialog.Builder (requireContext())
             builder.setTitle("Forgot password")
             val view1 :View = layoutInflater.inflate(R.layout.dialog_forgot,null)
             val username = view1.findViewById<EditText>(R.id.et_userName_forgot)
@@ -168,6 +168,10 @@ class login : Fragment() {
             .addOnCompleteListener { task ->
                 if(task.isSuccessful){
                     Toast.makeText(context,"Email sent.",Toast.LENGTH_SHORT).show()
+                }
+                else{
+                    Toast.makeText(context," else Email sent.",Toast.LENGTH_SHORT).show()
+
                 }
 
             }
