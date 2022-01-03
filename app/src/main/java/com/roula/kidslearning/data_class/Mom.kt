@@ -1,7 +1,7 @@
 package com.roula.kidslearning.data_class
 
 class Mom (
-
-    val textKids : String ="",
+    var oldTextKids: String = "",
+    var textKids : String =""
 
     )

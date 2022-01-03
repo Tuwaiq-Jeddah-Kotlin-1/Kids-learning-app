@@ -21,9 +21,11 @@ class MainActivity : AppCompatActivity() {
 
 //check the dark mood user option
         if (sharedPreferences.getBoolean("DARK_MOOD", true)) {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-        } else {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+            resources.configuration.uiMode = Configuration.UI_MODE_NIGHT_YES
+
+            //(AppCompatDelegate.MODE_NIGHT_YES)
+       } else {
+            resources.configuration.uiMode = Configuration.UI_MODE_NIGHT_NO
         }
 //check localization user option
         if (sharedPreferences.getString("LOCALE","") == "ar") {
@@ -40,9 +42,7 @@ class MainActivity : AppCompatActivity() {
        val  config: Configuration = resources.configuration
         config.setLocale(locale)
         resources.updateConfiguration(config, resources.displayMetrics)
-//        val editor = requireContext().getSharedPreferences("Settings", Context.MODE_PRIVATE).edit()
-//        editor.putString("My_Lang", Lang)
-//        editor.apply()
+
     }
 }
 

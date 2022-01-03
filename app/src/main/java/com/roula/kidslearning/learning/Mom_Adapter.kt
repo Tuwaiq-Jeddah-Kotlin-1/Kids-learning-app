@@ -6,16 +6,15 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModel
 import androidx.recyclerview.widget.RecyclerView
 import com.roula.kidslearning.R
 import com.roula.kidslearning.data_class.Mom
 import java.util.*
 
-class Mom_Adapter(val context: Context, val momData: List<Mom>, val viewModel: AlphabetVM) :
+class Mom_Adapter(val context: Context, val momData: MutableList<Mom>, val viewModel: AlphabetVM) :
     RecyclerView.Adapter<TextAdapter>(), TextToSpeech.OnInitListener {
     private lateinit var mTTS: TextToSpeech
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TextAdapter {
@@ -28,13 +27,36 @@ class Mom_Adapter(val context: Context, val momData: List<Mom>, val viewModel: A
     override fun onBindViewHolder(holder: TextAdapter, position: Int) {
         val momText = momData[position]
 
-        holder.momTextView.text = momText.textKids
+        holder.momTextView.hint = momText.textKids
+        holder.momTextView.isEnabled = false
+        val old= momText.textKids
         holder.lesson.setOnClickListener {
             speak(momText.textKids)
 
         }
+        holder.edit.setOnClickListener {
+          holder.momTextView.isEnabled = !holder.momTextView.isEnabled
 
-    }
+          if(holder.momTextView.isEnabled) {
+
+              holder.edit.background =
+                  ContextCompat.getDrawable(context, R.drawable.tick)
+          }else {
+              holder.edit.background =
+                  ContextCompat.getDrawable(context, R.drawable.edit)
+              if (old != holder.momTextView.text.toString()){
+                  momText.oldTextKids = momText.textKids
+                  momText.textKids=holder.momTextView.text.toString()
+                  viewModel.updateText(momText)
+                  notifyItemChanged(position)
+                  //  holder.momTextView.isEnabled = false
+              }
+          }
+
+}
+
+        }
+
 
     override fun getItemCount(): Int {
         return momData.size
@@ -45,7 +67,6 @@ class Mom_Adapter(val context: Context, val momData: List<Mom>, val viewModel: A
         mTTS.setPitch(1f)
         mTTS.setSpeechRate(0.8f)
         mTTS.speak(name, TextToSpeech.QUEUE_FLUSH, null, "")
-
     }
 
     override fun onInit(status: Int) {
@@ -65,14 +86,16 @@ class Mom_Adapter(val context: Context, val momData: List<Mom>, val viewModel: A
 
     fun deleteText(adapterPosition: Int) {
         viewModel.deleteText(momData[adapterPosition])
-      // notifyItemRemoved(adapterPosition)
-      //  Toast.makeText(context,"deleted",Toast.LENGTH_SHORT).show()
+        momData.removeAt(adapterPosition)
+        notifyItemRemoved(adapterPosition)
+        Toast.makeText(context,"deleted",Toast.LENGTH_SHORT).show()
     }
 
 
 }
 
 class TextAdapter(itemView: View) : RecyclerView.ViewHolder(itemView) {
-    val momTextView: TextView = itemView.findViewById(R.id.tv_mom)
+    val momTextView: EditText = itemView.findViewById(R.id.tv_mom)
     val lesson: Button = itemView.findViewById(R.id.lesson)
+    val edit: ImageButton = itemView.findViewById(R.id.edit_mom)
 }

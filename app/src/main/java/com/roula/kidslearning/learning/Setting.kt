@@ -20,6 +20,7 @@ import android.widget.*
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.app.ActivityCompat.recreate
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.button.MaterialButtonToggleGroup
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -33,11 +34,10 @@ class Setting : Fragment() {
 
     private lateinit var userSetting: TextView
     private lateinit var emilSetting: TextView
-    private lateinit var languageVal: String
+    private lateinit var languageToggleButton: MaterialButtonToggleGroup
     private lateinit var logout: Button
     private lateinit var preferences: SharedPreferences
     private lateinit var share: ImageButton
-    lateinit var mBtn: Button
 
 
     private val firebaseObj = Firebase.firestore.collection("Users")
@@ -65,10 +65,11 @@ class Setting : Fragment() {
         emilSetting = view.findViewById(R.id.emilSetting)
         logout = view.findViewById(R.id.logOut)
         share = view.findViewById(R.id.share)
-        mBtn = view.findViewById(R.id.mChangeLang)
+        languageToggleButton = view.findViewById(R.id.LanguageToggleButton)
 
         preferences = requireContext().getSharedPreferences("SHARED_PREF", Context.MODE_PRIVATE)
         var toggle: Switch = view.findViewById(R.id.switchtheme)
+        toggle.isChecked = preferences.getBoolean("DARK_MOOD" , false)
         toggle.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
                 AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_YES)
@@ -80,11 +81,8 @@ class Setting : Fragment() {
             }
         }
 
-        mBtn.setOnClickListener {
 
-            showChangeLang()
 
-        }
         val uid = FirebaseAuth.getInstance().currentUser?.uid
 
         firebaseObj.document("$uid").get().addOnCompleteListener { it ->
@@ -102,7 +100,7 @@ class Setting : Fragment() {
                 action = Intent.ACTION_SEND
                 putExtra(
                     Intent.EXTRA_TEXT,
-                    "Download the application and enjoy your child's learning with us"
+                    "Download the application and enjoy your child's learning with us .. My name App : Kidds Zone"
                 )
                 type = "text/plain"
             }
@@ -111,7 +109,20 @@ class Setting : Fragment() {
             startActivity(shareIntent)
         }
 
-
+        languageToggleButton.addOnButtonCheckedListener{ ToggleButtonGroup, checkedId, isChecked ->
+            if (isChecked) {
+                when (checkedId) {
+                    R.id.ArabicButton -> activity?.let {
+                        preferences.edit().putString("LOCALE", "ar").apply()
+                        setLocate(it, "ar")
+                    }
+                    R.id.EnglishButton -> activity?.let {
+                        preferences.edit().putString("LOCALE", "en").apply()
+                        setLocate(it, "en")
+                    }
+                }
+            }
+        }
 
         logout.setOnClickListener {
             val editor: SharedPreferences.Editor = preferences.edit().clear()
@@ -120,35 +131,15 @@ class Setting : Fragment() {
             findNavController().navigate(R.id.action_settings_to_login)
 
         }
+
+
     }
 
-    private fun showChangeLang() {
 
-        val listItmes = arrayOf("Arabic",                                                                -"English")
 
-        val mBuilder = AlertDialog.Builder(context)
-        mBuilder.setTitle("Choose Language")
-        mBuilder.setPositiveButton("OK") { _, _ ->
 
-//            refreshCurrentFragment()
-        }
-        mBuilder.setSingleChoiceItems(listItmes, -1) { dialog, which ->
-            if (which == 0) {
 
-                    preferences.edit().putString("LOCALE", "ar")
-                    setLocate(requireActivity(), "ar")
 
-            } else {
-
-                    preferences.edit().putString("LOCALE", "en")
-                    setLocate(requireActivity(), "en")
-            }
-
-            val mDialog = mBuilder.create()
-            mDialog.show()
-
-        }
-    }
 
      fun setLocate(activity: Activity, Lang: String) {
         val locale = Locale(Lang)
@@ -159,22 +150,6 @@ class Setting : Fragment() {
         resources.updateConfiguration(config, resources.displayMetrics)
         startActivity(Intent(activity, MainActivity::class.java))
         activity.finish()
-        //        val editor = requireContext().getSharedPreferences("Settings", Context.MODE_PRIVATE).edit()
-//        editor.putString("My_Lang", Lang)
-//        editor.apply()
-    }
 
-//    private fun loadLocate() {
-//        val sharedPreferences = requireContext().getSharedPreferences("SHARED_PREF", Context.MODE_PRIVATE)
-//        val language = sharedPreferences.getString("My_Lang", "")
-//        if (language != null) {
-//            setLocate(language)
-//        }
-//    }
-//    private fun refreshCurrentFragment(){
-//        val id = findNavController().currentDestination?.id
-//        findNavController().navigateUp()
-//        findNavController().navigate(id!!)
-//        Log.e("Access","$id")
-//    }
+    }
 }

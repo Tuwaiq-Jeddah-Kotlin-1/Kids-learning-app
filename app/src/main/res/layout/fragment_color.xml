@@ -33,6 +33,7 @@
             android:fontFamily="@font/berlinsans"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="26sp"
+            android:text="@string/color"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/buttonback"
             app:layout_constraintTop_toTopOf="parent"

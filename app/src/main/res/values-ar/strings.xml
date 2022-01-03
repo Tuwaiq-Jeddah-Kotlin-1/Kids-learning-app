@@ -19,4 +19,10 @@
     <string name="language">تغيير اللغة</string>
     <string name="please_share_with_your_friends">يرجى مشاركتها مع اصدقائك</string>
     <string name="logout">تسجيل خروج</string>
+    <string name="hello_blank_fragment">اهلا</string>
+    <string name="english">إنجليزي</string>
+    <string name="arabic">عربي</string>
+    <string name="setting">الإعدادات</string>
+    <string name="welcome_kids">مرحبا يا أطفال</string>
+    <string name="repeat_your_kids">التكرار لـطفلك</string>
 </resources>
