@@ -38,6 +38,7 @@ class Setting : Fragment() {
     private lateinit var logout: Button
     private lateinit var preferences: SharedPreferences
     private lateinit var share: ImageButton
+    private lateinit var back: Button
 
 
     private val firebaseObj = Firebase.firestore.collection("Users")
@@ -58,7 +59,7 @@ class Setting : Fragment() {
     }
 
 
-    @SuppressLint("WrongConstant")
+    @SuppressLint("WrongConstant", "UseSwitchCompatOrMaterialCode")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         userSetting = view.findViewById(R.id.usernameSetting)
@@ -66,23 +67,24 @@ class Setting : Fragment() {
         logout = view.findViewById(R.id.logOut)
         share = view.findViewById(R.id.share)
         languageToggleButton = view.findViewById(R.id.LanguageToggleButton)
+        back= view.findViewById(R.id.btnback_setting)
 
         preferences = requireContext().getSharedPreferences("SHARED_PREF", Context.MODE_PRIVATE)
-        var toggle: Switch = view.findViewById(R.id.switchtheme)
-        toggle.isChecked = preferences.getBoolean("DARK_MOOD" , false)
+        val toggle: Switch = view.findViewById(R.id.switchtheme)
+        toggle.isChecked = preferences.getBoolean("DARK_MOOD" , true)
         toggle.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
                 AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_YES)
                 preferences.edit().putBoolean("DARK_MOOD", true).apply()
 
             } else {
-                AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_NO)
+               AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_NO)
+
                 preferences.edit().putBoolean("DARK_MOOD", false).apply()
             }
         }
 
-
-
+       // val mainActivity = requireActivity() as MainActivity
         val uid = FirebaseAuth.getInstance().currentUser?.uid
 
         firebaseObj.document("$uid").get().addOnCompleteListener { it ->
@@ -123,23 +125,19 @@ class Setting : Fragment() {
                 }
             }
         }
-
         logout.setOnClickListener {
             val editor: SharedPreferences.Editor = preferences.edit().clear()
             editor.apply()
+          //  mainActivity.pef(preferences)
             FirebaseAuth.getInstance().signOut()
             findNavController().navigate(R.id.action_settings_to_login)
 
         }
 
-
+        back.setOnClickListener{
+            findNavController().navigate(R.id.action_settings_to_home2)
+        }
     }
-
-
-
-
-
-
 
      fun setLocate(activity: Activity, Lang: String) {
         val locale = Locale(Lang)

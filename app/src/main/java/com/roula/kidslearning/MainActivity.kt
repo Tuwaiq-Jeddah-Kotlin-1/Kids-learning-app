@@ -2,9 +2,11 @@ package com.roula.kidslearning
 
 import android.app.Activity
 import android.content.Context
+import android.content.SharedPreferences
 import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.UserDictionary.Words.LOCALE
 import androidx.appcompat.app.AppCompatDelegate
 import com.roula.kidslearning.notification.NotificationRepo
 import java.util.*
@@ -17,13 +19,12 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.hide()
 
         NotificationRepo().myNotification(this)
-        val sharedPreferences = getSharedPreferences("SHARED_PREF", Context.MODE_PRIVATE)
+        val sharedPreferences = getSharedPreferences("SHARED_PREF", Activity.MODE_PRIVATE)
 
 //check the dark mood user option
-        if (sharedPreferences.getBoolean("DARK_MOOD", true)) {
+        if (sharedPreferences.getBoolean("DARK_MOOD", false)) {
             resources.configuration.uiMode = Configuration.UI_MODE_NIGHT_YES
 
-            //(AppCompatDelegate.MODE_NIGHT_YES)
        } else {
             resources.configuration.uiMode = Configuration.UI_MODE_NIGHT_NO
         }
@@ -33,7 +34,10 @@ class MainActivity : AppCompatActivity() {
         } else {
             setLocate(this,"en")
         }
+
     }
+
+
 
     private fun setLocate(activity: Activity, Lang: String) {
         val locale = Locale(Lang)
@@ -44,5 +48,6 @@ class MainActivity : AppCompatActivity() {
         resources.updateConfiguration(config, resources.displayMetrics)
 
     }
+
 }
 

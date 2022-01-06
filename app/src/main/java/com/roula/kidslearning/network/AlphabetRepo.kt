@@ -49,26 +49,17 @@ class AlphabetRepo {
         }
         return textList
     }
-    suspend fun saveText(textMom: Mom) = withContext(Dispatchers.IO) {
-        db.collection("Users").document("$uid").collection("Mom").document(textMom.textKids)
-            .set(textMom)
-//            .addOnSuccessListener {
-//                Log.d("TAG", "DocumentSnapshot successfully written!")
-//            }
-//            .addOnFailureListener { e ->
-//                Log.w("TAG", "Error writing document", e)
-//            }
+    suspend fun saveText(mom: Mom) = withContext(Dispatchers.IO) {
+        db.collection("Users").document("$uid").collection("Mom").document("${mom.textId}")
+            .set(mom)
     }
 
-    suspend fun updateText(textMom: Mom) = withContext(Dispatchers.IO){
-        db.collection("Users").document("$uid").collection("Mom").document(textMom.oldTextKids)
-            .delete()
-        db.collection("Users").document("$uid").collection("Mom").document(textMom.textKids)
-            .set(textMom)
+    suspend fun updateText(mom: Mom) = withContext(Dispatchers.IO){
+        db.collection("Users").document(uid!!).collection("Mom").document("${mom.textId}").update("textKids", mom.textKids)
 
     }
-    suspend fun deleteText(textMom: Mom) = withContext(Dispatchers.IO){
-        db.collection("Users").document("$uid").collection("Mom").document(textMom.textKids)
+    suspend fun deleteText(mom: Mom) = withContext(Dispatchers.IO){
+        db.collection("Users").document("$uid").collection("Mom").document(mom.textId)
             .delete()
     }
 

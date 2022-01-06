@@ -8,7 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.core.content.ContextCompat
-import androidx.lifecycle.ViewModel
 import androidx.recyclerview.widget.RecyclerView
 import com.roula.kidslearning.R
 import com.roula.kidslearning.data_class.Mom
@@ -45,11 +44,10 @@ class Mom_Adapter(val context: Context, val momData: MutableList<Mom>, val viewM
               holder.edit.background =
                   ContextCompat.getDrawable(context, R.drawable.edit)
               if (old != holder.momTextView.text.toString()){
-                  momText.oldTextKids = momText.textKids
                   momText.textKids=holder.momTextView.text.toString()
-                  viewModel.updateText(momText)
+                 viewModel.updateText(momText)
                   notifyItemChanged(position)
-                  //  holder.momTextView.isEnabled = false
+                  Toast.makeText(context,"successful update ",Toast.LENGTH_SHORT).show()
               }
           }
 
@@ -95,7 +93,7 @@ class Mom_Adapter(val context: Context, val momData: MutableList<Mom>, val viewM
 }
 
 class TextAdapter(itemView: View) : RecyclerView.ViewHolder(itemView) {
-    val momTextView: EditText = itemView.findViewById(R.id.tv_mom)
-    val lesson: Button = itemView.findViewById(R.id.lesson)
+    val momTextView: EditText = itemView.findViewById(R.id.emilPass)
+    val lesson: ImageButton = itemView.findViewById(R.id.lesson)
     val edit: ImageButton = itemView.findViewById(R.id.edit_mom)
 }

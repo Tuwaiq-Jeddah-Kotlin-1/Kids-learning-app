@@ -12,10 +12,10 @@
     <color name="colorAccent">#00A5FF</color>
 
     <!--colors for modern ui-->
-    <color name="backGroundAll">#E8E5CB</color>
+    <color name="backGroundAll">#EDECED</color>
     <color name="backGroundWhite">#FAF9F6</color>
     <color name="primaryTextColor">#00a5ff</color>
-    <color name="loginBkColor">#f0f0f0</color>
+    <color name="red">#E40416</color>
 
     <!--colors for card-->
     <color name="colorForBackground">#DABC9A</color>

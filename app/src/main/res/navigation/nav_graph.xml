@@ -17,6 +17,9 @@
             android:id="@+id/action_login_to_home2"
             app:popUpTo="@id/nav_graph"
             app:destination="@id/home2" />
+        <action
+            android:id="@+id/action_login_to_forgotPassword"
+            app:destination="@id/forgotPassword" />
     </fragment>
     <fragment
         android:id="@+id/register"
@@ -50,17 +53,13 @@
         android:id="@+id/alphabet"
         android:name="com.roula.kidslearning.learning.Alphabet"
         android:label="fragment_alphabet"
-        tools:layout="@layout/fragment_alphabet" />
-    <fragment
-        android:id="@+id/forMom"
-        android:name="com.roula.kidslearning.learning.ForMom"
-        android:label="fragment_for_mom"
-        tools:layout="@layout/fragment_for_mom" >
+        tools:layout="@layout/fragment_alphabet" >
         <action
-            android:id="@+id/action_forMom_to_add_mom"
-            app:popUpTo="@id/nav_graph"
-            app:destination="@id/add_mom" />
+            android:id="@+id/action_alphabet_to_home2"
+            app:destination="@id/home2" />
     </fragment>
+
+
     <fragment
         android:id="@+id/splash"
         android:name="com.roula.kidslearning.logIn.Splash"
@@ -79,6 +78,9 @@
             android:id="@+id/action_settings_to_login"
             app:popUpTo="@id/nav_graph"
             app:destination="@id/login" />
+        <action
+            android:id="@+id/action_settings_to_home2"
+            app:destination="@id/home2" />
     </fragment>
     <fragment
         android:id="@+id/color"
@@ -89,14 +91,41 @@
             android:id="@+id/action_color_to_home2"
             app:destination="@id/home2" />
     </fragment>
+
     <fragment
+        android:id="@+id/forMom"
+        android:name="com.roula.kidslearning.learning.ForMom"
+        android:label="fragment_for_mom"
+        tools:layout="@layout/fragment_for_mom" >
+        <action
+            android:id="@+id/action_forMom_to_add_mom"
+            app:destination="@id/add_mom"
+            app:enterAnim="@anim/from_bottom"
+            app:exitAnim="@anim/from_top"
+            />
+        <action
+            android:id="@+id/action_forMom_to_home2"
+            app:destination="@id/home2" />
+    </fragment>
+    <dialog
         android:id="@+id/add_mom"
         android:name="com.roula.kidslearning.learning.Add_mom"
         android:label="fragment_add_mom"
         tools:layout="@layout/fragment_add_mom" >
         <action
             android:id="@+id/action_add_mom_to_forMom"
-            app:popUpTo="@id/nav_graph"
-            app:destination="@id/forMom" />
+            app:destination="@id/forMom"
+            app:enterAnim="@anim/from_top"
+            app:exitAnim="@anim/from_bottom"
+            app:popUpTo="@id/nav_graph" />
+    </dialog>
+    <fragment
+        android:id="@+id/forgotPassword"
+        android:name="com.roula.kidslearning.learning.ForgotPassword"
+        android:label="fragment_forgot_password"
+        tools:layout="@layout/fragment_forgot_password" >
+        <action
+            android:id="@+id/action_forgotPassword_to_login"
+            app:destination="@id/login" />
     </fragment>
 </navigation>

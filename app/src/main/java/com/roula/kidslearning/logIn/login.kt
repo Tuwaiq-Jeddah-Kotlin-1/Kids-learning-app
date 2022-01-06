@@ -1,11 +1,9 @@
 package com.roula.kidslearning.logIn
 
-import android.app.AlertDialog
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.text.TextUtils
-import android.util.Patterns
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -14,6 +12,7 @@ import android.widget.*
 import androidx.navigation.fragment.findNavController
 import com.google.firebase.auth.FirebaseAuth
 import com.roula.kidslearning.R
+import com.roula.kidslearning.util.Validation
 
 
 class login : Fragment() {
@@ -27,9 +26,6 @@ class login : Fragment() {
     private lateinit var remember : CheckBox
     private lateinit var myShared :SharedPreferences
     var isRemember = false
-
-
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,7 +44,6 @@ class login : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
         email = view.findViewById(R.id.et_email)
         password = view.findViewById(R.id.et_password)
         userName = view.findViewById(R.id.et_userName)
@@ -60,17 +55,7 @@ class login : Fragment() {
 
         forgotePass.setOnClickListener {
 
-            val builder = AlertDialog.Builder (requireContext())
-            builder.setTitle("Forgot password")
-            val view1 :View = layoutInflater.inflate(R.layout.dialog_forgot,null)
-            val username = view1.findViewById<EditText>(R.id.et_userName_forgot)
-            builder.setView(view1)
-            builder.setPositiveButton("Reset") { _, _ ->
-                forgotPassword(username)
-            }
-            builder.setNegativeButton("Close") { _, _ ->
-                builder.show()
-            }
+            findNavController().navigate(R.id.action_login_to_forgotPassword)
         }
 
 
@@ -78,6 +63,7 @@ class login : Fragment() {
             findNavController().navigate(R.id.action_login_to_register)
 
         }
+
         myShared = requireContext().getSharedPreferences("SHARED_PREF", Context.MODE_PRIVATE)
         isRemember = myShared.getBoolean("CHECKBOX", false)
         if (isRemember){
@@ -100,7 +86,14 @@ class login : Fragment() {
                         Toast.LENGTH_LONG
                     ).show()
                 }
+                !Validation.emil(email.text.toString().trim { it <= ' ' }) -> {
+                    Toast.makeText(
+                        context,
+                        "Invalid Email",
+                        Toast.LENGTH_LONG
+                    ).show()
 
+                }
                 TextUtils.isEmpty(password.text.toString().trim { it <= ' ' }) -> {
                     Toast.makeText(
                         context,
@@ -109,6 +102,7 @@ class login : Fragment() {
                     ).show()
 
                 }
+
                 else -> {
                     val email: String = email.text.toString().trim { it <= ' ' }
                    val username: String = userName.text.toString().trim { it <= ' ' }
@@ -118,18 +112,13 @@ class login : Fragment() {
                     FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password)
                         .addOnCompleteListener { task ->
 
-                            // if the registration is sucessfully done
                             if (task.isSuccessful) {
-                                //firebase register user
-                             //  val firebaseUser: FirebaseUser = task.result!!.user!!
 
                                 Toast.makeText(
                                     context,
                                     "Welcome",
                                     Toast.LENGTH_LONG
                                 ).show()
-
-
 
                                 val editor : SharedPreferences.Editor = myShared.edit()
                                 val userPref = username
@@ -144,8 +133,6 @@ class login : Fragment() {
                                 Toast.makeText(context,"Information Saved!",Toast.LENGTH_LONG).show()
                                 findNavController().navigate(R.id.home2)
 
-
-
                             } else {
                                 // if the registreation is not succsesful then show error massage
                                 Toast.makeText(
@@ -153,28 +140,5 @@ class login : Fragment() {
                                     task.exception!!.message.toString(),
                                     Toast.LENGTH_LONG
                                 ).show()
-
-
-
                             } } } } } }
-    private fun forgotPassword (emil: EditText){
-        if (emil.text.toString().isEmpty()){
-            return
-        }
-        if (!Patterns.EMAIL_ADDRESS.matcher(emil.text.toString()).matches()){
-            return
-        }
-        FirebaseAuth.getInstance().sendPasswordResetEmail(emil.text.toString())
-            .addOnCompleteListener { task ->
-                if(task.isSuccessful){
-                    Toast.makeText(context,"Email sent.",Toast.LENGTH_SHORT).show()
-                }
-                else{
-                    Toast.makeText(context," else Email sent.",Toast.LENGTH_SHORT).show()
-
-                }
-
-            }
-
-    }
 }

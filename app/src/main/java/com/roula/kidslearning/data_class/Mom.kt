@@ -1,7 +1,11 @@
 package com.roula.kidslearning.data_class
 
-class Mom (
-    var oldTextKids: String = "",
-    var textKids : String =""
+import java.util.*
 
-    )
+ data class Mom (
+
+     var textKids : String ="",
+     val textId: String =(UUID.randomUUID()).toString()
+
+ )
+
