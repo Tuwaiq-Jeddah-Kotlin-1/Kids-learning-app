@@ -35,19 +35,19 @@ class AlphabetVM : ViewModel() {
         return textMom
     }
 
-    fun saveText(textMom: Mom) {
+    fun saveText(mom: Mom) {
         viewModelScope.launch {
-            repo.saveText(textMom)
+            repo.saveText(mom)
         }
     }
-    fun updateText(textMom: Mom) {
+    fun updateText(mom: Mom) {
         viewModelScope.launch {
-            repo.updateText(textMom)
+            repo.updateText(mom)
         }
     }
-    fun deleteText(textMom: Mom) {
+    fun deleteText(mom: Mom) {
         viewModelScope.launch {
-            repo.deleteText(textMom)
+            repo.deleteText(mom)
         }
     }
 

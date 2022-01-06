@@ -8,11 +8,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -26,6 +28,7 @@ class ForMom : Fragment() {
     private lateinit var plus: FloatingActionButton
     private lateinit var viewModel: AlphabetVM
     private lateinit var mAdapter: Mom_Adapter
+    private lateinit var back : Button
     private  var listSize: Int = 0
 
 
@@ -45,9 +48,15 @@ class ForMom : Fragment() {
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        back = view.findViewById(R.id.btnback_mom)
+        back.setOnClickListener{
+
+            findNavController().navigate(R.id.action_forMom_to_home2)
+        }
         plus = view.findViewById(R.id.fab_add_task)
         plus.setOnClickListener {
-           it.findNavController().navigate(R.id.action_forMom_to_add_mom)
+           findNavController().navigate(R.id.action_forMom_to_add_mom)
         }
         viewModel = ViewModelProvider(this).get(AlphabetVM::class.java)
         recyclerView = view.findViewById(R.id.recycler_view_text)

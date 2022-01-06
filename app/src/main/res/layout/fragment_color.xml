@@ -3,6 +3,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/backGroundAll"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -31,7 +32,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:fontFamily="@font/berlinsans"
-            android:textColor="@color/colorPrimaryDark"
+            android:textColor="@color/colorBlueDark"
             android:textSize="26sp"
             android:text="@string/color"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -250,20 +251,23 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
 
-        <ImageView
-            android:id="@+id/imageView5"
-            android:layout_width="240dp"
-            android:layout_height="220dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginBottom="16dp"
-            android:scaleType="fitXY"
-            android:src="@drawable/butterfly"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toEndOf="@+id/blue"
-            app:layout_constraintTop_toBottomOf="@+id/cardviewMerah"
-            app:layout_constraintVertical_bias="0.0" />
+
+<com.airbnb.lottie.LottieAnimationView
+    android:layout_width="240dp"
+    android:layout_height="220dp"
+    android:layout_marginTop="24dp"
+    android:layout_marginBottom="16dp"
+    android:scaleType="fitXY"
+    app:lottie_loop="true"
+    app:lottie_rawRes="@raw/butterfly"
+    app:lottie_autoPlay="true"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="1.0"
+    app:layout_constraintStart_toEndOf="@+id/blue"
+    app:layout_constraintTop_toBottomOf="@+id/cardviewMerah"
+    app:layout_constraintVertical_bias="0.0" />
+
 
         <androidx.cardview.widget.CardView
             android:id="@+id/yellow"
@@ -332,13 +336,27 @@
             android:layout_height="220dp"
             android:layout_marginTop="8dp"
             android:scaleType="fitXY"
-            android:src="@drawable/rubber"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/blue"
             app:layout_constraintVertical_bias="0.0" />
+<com.airbnb.lottie.LottieAnimationView
+    android:id="@+id/yellwoLotti"
+    android:layout_width="240dp"
+    android:layout_height="220dp"
+    app:lottie_autoPlay="true"
+    app:lottie_loop="true"
+    android:layout_marginTop="8dp"
+    android:scaleType="fitXY"
+    app:lottie_rawRes="@raw/yellowbir"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.0"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/blue"
+    app:layout_constraintVertical_bias="0.0" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

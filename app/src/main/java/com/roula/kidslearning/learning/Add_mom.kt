@@ -1,21 +1,21 @@
 package com.roula.kidslearning.learning
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.findNavController
-import com.google.android.material.floatingactionbutton.FloatingActionButton
+import androidx.navigation.fragment.findNavController
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.roula.kidslearning.R
 import com.roula.kidslearning.data_class.Mom
+import java.util.*
 
 
-class Add_mom : Fragment() {
-
+class Add_mom : BottomSheetDialogFragment() {
+    override fun getTheme(): Int = R.style.BottomSheetDialogTheme
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,11 +41,11 @@ class Add_mom : Fragment() {
 
 
             val mom = Mom(
-                textKids = editT_mom.text.toString(),
+                textKids = editT_mom.text.toString()
                 )
             mainVM.saveText(mom)
 
-           it.findNavController().navigate(R.id.action_add_mom_to_forMom)
+          findNavController().navigate(R.id.action_add_mom_to_forMom)
 
         }
     }
