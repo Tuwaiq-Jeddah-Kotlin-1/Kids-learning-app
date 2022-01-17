@@ -18,6 +18,9 @@
     <color name="red">#E40416</color>
 
     <!--colors for card-->
+
+    <color name="lightGrey">#D1CECE</color>
+
     <color name="colorForBackground">#DABC9A</color>
     <color name="colorBlueDark">#105878</color>
     <color name="colorOrange">#eda96d</color>

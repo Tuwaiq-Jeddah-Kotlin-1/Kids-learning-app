@@ -10,7 +10,8 @@ class ValidationTest {
 
     @Before
     fun setUp() {
-        validation = Validation()
+        validation = Validation
+
     }
 
     @Test

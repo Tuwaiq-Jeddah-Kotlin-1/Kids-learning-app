@@ -34,7 +34,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_margin="10dp"
-
+            android:background="@drawable/header_bg"
             android:contentDescription="@string/app_name"
             android:textSize="30sp" />
 

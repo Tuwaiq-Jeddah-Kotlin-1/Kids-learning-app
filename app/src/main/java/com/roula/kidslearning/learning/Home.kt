@@ -7,10 +7,15 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.navigation.fragment.findNavController
 import com.roula.kidslearning.R
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 private lateinit var cardAlphabet : CardView
 private lateinit var cardReapet : CardView
@@ -44,23 +49,40 @@ class Home : Fragment() {
     cardColor= view.findViewById(R.id.card_Color)
     welcome= view.findViewById(R.id.welcome)
     cardSetting= view.findViewById(R.id.card_setting)
+        var scaleUp = AnimationUtils.loadAnimation(context, R.anim.scale_up)
+
 
         preferences = requireContext().getSharedPreferences("SHARED_PREF", Context.MODE_PRIVATE)
         val nameWelcome = preferences.getString("user name","")
-        welcome.text = "Welcome "+nameWelcome
+        welcome.text = ""+nameWelcome
 
         cardAlphabet.setOnClickListener {
+            GlobalScope.launch {
+                cardAlphabet.startAnimation(scaleUp)
+                delay(500)
+            }
             findNavController().navigate(R.id.action_home2_to_alphabet)
         }
         cardColor.setOnClickListener {
+            GlobalScope.launch {
+                cardColor.startAnimation(scaleUp)
+                delay(500)
+            }
             findNavController().navigate(R.id.action_home2_to_color)
-
         }
         cardReapet.setOnClickListener {
+            GlobalScope.launch {
+                cardReapet.startAnimation(scaleUp)
+                delay(500)
+            }
             findNavController().navigate(R.id.action_home2_to_forMom)
 
         }
         cardSetting.setOnClickListener {
+            GlobalScope.launch {
+                cardSetting.startAnimation(scaleUp)
+                delay(500)
+            }
             findNavController().navigate(R.id.action_home2_to_settings)
 
         }

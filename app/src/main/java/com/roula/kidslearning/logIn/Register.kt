@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.google.firebase.auth.FirebaseAuth
@@ -29,6 +30,7 @@ class Register : Fragment() {
     private lateinit var email_register: EditText
     private lateinit var password_rigster: EditText
     private lateinit var btn_rigster: Button
+    private lateinit var toLogin : TextView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -46,7 +48,6 @@ class Register : Fragment() {
     private fun saveUsers(users: Users) = CoroutineScope(Dispatchers.IO).launch {
         val uid = FirebaseAuth.getInstance().currentUser?.uid
         try {
-            ///if ubdate user writ here  SetOptions.merge()
             firebaseObj.document("$uid").set(users).addOnSuccessListener {
                 Toast.makeText(context, "Successfully saved data.", Toast.LENGTH_SHORT).show()
                 findNavController().navigate(R.id.action_register_to_home2)
@@ -66,6 +67,11 @@ class Register : Fragment() {
         email_register = view.findViewById(R.id.et_email_register)
         password_rigster = view.findViewById(R.id.et_password_register)
         btn_rigster = view.findViewById(R.id.btn_register)
+        toLogin = view.findViewById(R.id.toLogin)
+
+        toLogin.setOnClickListener {
+            findNavController().navigate(R.id.action_register_to_login)
+        }
         btn_rigster.setOnClickListener {
 
 

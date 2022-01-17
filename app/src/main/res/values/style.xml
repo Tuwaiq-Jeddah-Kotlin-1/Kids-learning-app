@@ -13,5 +13,9 @@
             <item name="bottomSheetStyle">@style/BottomSheet</item>
         </style>
 
-        <style name="BottomSheetDialogTheme" parent="BaseBottomSheetDialog" />
+
+        <style name="BottomSheetDialogTheme" parent="BaseBottomSheetDialog" >
+    <item name="android:windowIsFloating">false</item>
+    <item name="android:windowSoftInputMode">adjustResize|stateVisible</item>
+        </style>
     </resources>

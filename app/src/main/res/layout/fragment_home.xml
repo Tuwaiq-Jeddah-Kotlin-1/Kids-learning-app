@@ -25,19 +25,37 @@
             android:layout_width="200dp"
             android:layout_height="200dp"
             android:src="@drawable/logo1" />
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center">
+
 
         <TextView
-            android:id="@+id/welcome"
-            android:layout_width="match_parent"
+            android:id="@+id/welcome2"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:fontFamily="@font/berlinsans"
             android:text="@string/welcome_kids"
-            android:gravity="center"
+            android:layout_marginEnd="5dp"
+            android:textColor="@color/colorPink"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/welcome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" kids"
+            android:layout_marginEnd="5dp"
+            android:layout_gravity="bottom"
             android:textStyle="bold"
             android:fontFamily="@font/berlinsans"
             android:textColor="@color/colorPink"
             android:textSize="18sp"
             />
-
+</LinearLayout>
     </LinearLayout>
 
 
@@ -63,12 +81,14 @@
                 app:cardElevation="4dp"
                 app:cardCornerRadius="8dp"
                 android:layout_margin="12dp"
-
+                android:background="@color/backGroundAll"
                 tools:ignore="NestedWeights">
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical"
+                    android:background="@color/backGroundWhite"
+
                     android:gravity="center"
                     >
                     <ImageView
@@ -96,6 +116,7 @@
                 android:layout_weight="1"
                 app:cardElevation="4dp"
                 app:cardCornerRadius="8dp"
+                android:background="@color/backGroundAll"
                 android:layout_margin="12dp"
 
                 >
@@ -103,6 +124,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical"
+                    android:background="@color/backGroundWhite"
                     android:gravity="center"
                     >
                     <ImageView
@@ -140,6 +162,7 @@
                 android:layout_weight="1"
                 app:cardElevation="4dp"
                 app:cardCornerRadius="8dp"
+                android:background="@color/backGroundAll"
                 android:layout_margin="12dp"
                 >
 
@@ -147,6 +170,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical"
+                    android:background="@color/backGroundWhite"
                     android:gravity="center">
 
                     <ImageView
@@ -172,12 +196,14 @@
                 android:layout_weight="1"
                 app:cardElevation="4dp"
                 app:cardCornerRadius="8dp"
+                android:background="@color/backGroundAll"
                 android:layout_margin="12dp"
                 >
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical"
+                    android:background="@color/backGroundWhite"
                     android:gravity="center"
                     >
                     <ImageView
