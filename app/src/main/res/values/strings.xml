@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">KidsLearning</string>
+    <string name="app_name">Kids Zone</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="login">login</string>
     <string name="swipe_left_for_register">New user? Sign UP</string>

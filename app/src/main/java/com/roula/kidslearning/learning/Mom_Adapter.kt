@@ -6,11 +6,15 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import android.widget.*
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.roula.kidslearning.R
 import com.roula.kidslearning.data_class.Mom
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import java.util.*
 
 class Mom_Adapter(val context: Context, val momData: MutableList<Mom>, val viewModel: AlphabetVM) :
@@ -29,7 +33,12 @@ class Mom_Adapter(val context: Context, val momData: MutableList<Mom>, val viewM
         holder.momTextView.hint = momText.textKids
         holder.momTextView.isEnabled = false
         val old= momText.textKids
+        val scaleUp = AnimationUtils.loadAnimation(context,R.anim.scale_up)
         holder.lesson.setOnClickListener {
+            GlobalScope.launch {
+                holder.lesson.startAnimation(scaleUp)
+                delay(500)
+            }
             speak(momText.textKids)
 
         }
