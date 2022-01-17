@@ -60,7 +60,7 @@
                 android:layout_height="105dp"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="18dp"
-                android:src="@drawable/user"
+                android:src="@drawable/bear"
                 tools:ignore="MissingClass" />
 
             <TextView
@@ -100,6 +100,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
         app:cardCornerRadius="34dp"
+        android:background="@color/backGroundAll"
         app:layout_constraintTop_toBottomOf="@+id/cardView"
         tools:layout_editor_absoluteX="16dp">
 
@@ -116,8 +117,8 @@
                 android:layout_alignParentEnd="true"
                 android:layout_gravity="center"
                 android:layout_marginStart="100dp"
-                android:layout_marginTop="50dp"
-                android:layout_marginEnd="100dp"
+                android:layout_marginTop="100dp"
+                android:layout_marginEnd="90dp"
                 android:minHeight="48dp"
                 android:text="@string/dark_mode"
                 android:textColor="@color/colorBlueDark"
@@ -125,28 +126,15 @@
                 tools:ignore="UseSwitchCompatOrMaterialXml" />
 
 
-            <TextView
-                android:id="@+id/language"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentEnd="true"
-                android:layout_marginStart="100dp"
-                android:layout_marginTop="100dp"
-                android:layout_marginEnd="100dp"
-                android:text="@string/language"
-                android:textColor="@color/colorBlueDark"
-                android:textSize="18sp" />
-
             <com.google.android.material.button.MaterialButtonToggleGroup
                 android:id="@+id/LanguageToggleButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentEnd="true"
-                android:layout_marginStart="60dp"
-                android:layout_marginTop="130dp"
-                android:layout_marginEnd="60dp"
+                android:layout_marginStart="80dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginEnd="70dp"
                 android:minHeight="48dp"
                 app:singleSelection="true">
 
@@ -155,41 +143,19 @@
                     style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                     android:layout_width="110dp"
                     android:layout_height="wrap_content"
-                    android:text="@string/english" />
+                    android:text="@string/english"
+                    android:textColor="@color/colorBlueDark"/>
 
                 <Button
                     android:id="@+id/ArabicButton"
                     style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                     android:layout_width="110dp"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/colorBlueDark"
                     android:text="@string/arabic" />
 
             </com.google.android.material.button.MaterialButtonToggleGroup>
 
-
-            <TextView
-                android:id="@+id/contact"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="190dp"
-                android:layout_marginEnd="50dp"
-                android:text="@string/please_share_with_your_friends"
-                android:textColor="@color/colorBlueDark"
-                android:textSize="20sp" />
-
-            <ImageButton
-                android:id="@+id/share"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:layout_marginTop="200dp"
-                android:layout_marginRight="40dp"
-                android:background="@drawable/share" />
 
             <Button
                 android:id="@+id/logOut"
@@ -199,17 +165,46 @@
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
                 android:layout_marginStart="100dp"
-                android:layout_marginTop="260dp"
+                android:layout_marginTop="190dp"
                 android:layout_marginEnd="100dp"
                 android:backgroundTint="@color/white"
                 android:gravity="center_horizontal"
                 android:text="@string/logout"
+                android:layout_marginBottom="30dp"
                 android:textColor="@color/red"
                 android:textSize="20sp" />
 
     </RelativeLayout>
 
     </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/contact"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="4dp"
+        android:text="@string/please_share_with_your_friends"
+        android:textColor="@color/colorBlueDark"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView2" />
+
+    <ImageButton
+        android:id="@+id/share"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:background="@drawable/share"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/contact"
+        app:layout_constraintTop_toBottomOf="@+id/cardView2"
+        android:layout_marginEnd="15dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

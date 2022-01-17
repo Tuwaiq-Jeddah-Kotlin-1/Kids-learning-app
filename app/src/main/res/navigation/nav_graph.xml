@@ -12,14 +12,17 @@
         tools:layout="@layout/fragment_login" >
         <action
             android:id="@+id/action_login_to_register"
-            app:destination="@id/register" />
+            app:destination="@id/register"
+            app:popUpTo="@id/nav_graph" />
         <action
             android:id="@+id/action_login_to_home2"
             app:popUpTo="@id/nav_graph"
-            app:destination="@id/home2" />
+            app:destination="@id/home2"
+            />
         <action
             android:id="@+id/action_login_to_forgotPassword"
-            app:destination="@id/forgotPassword" />
+            app:destination="@id/forgotPassword"
+            app:popUpTo="@id/nav_graph" />
     </fragment>
     <fragment
         android:id="@+id/register"
@@ -29,7 +32,12 @@
         <action
             android:id="@+id/action_register_to_home2"
             app:popUpTo="@id/nav_graph"
-            app:destination="@id/home2" />
+            app:destination="@id/home2"
+            />
+        <action
+            android:id="@+id/action_register_to_login"
+            app:destination="@id/login"
+            app:popUpTo="@id/nav_graph" />
     </fragment>
     <fragment
         android:id="@+id/home2"
@@ -38,16 +46,20 @@
         tools:layout="@layout/fragment_home" >
         <action
             android:id="@+id/action_home2_to_alphabet"
-            app:destination="@id/alphabet" />
+            app:destination="@id/alphabet"
+            app:popUpTo="@id/nav_graph" />
         <action
             android:id="@+id/action_home2_to_forMom"
-            app:destination="@id/forMom" />
+            app:destination="@id/forMom"
+            app:popUpTo="@id/nav_graph" />
         <action
             android:id="@+id/action_home2_to_settings"
-            app:destination="@id/settings" />
+            app:destination="@id/settings"
+            app:popUpTo="@id/nav_graph" />
         <action
             android:id="@+id/action_home2_to_color"
-            app:destination="@id/color" />
+            app:destination="@id/color"
+            app:popUpTo="@id/nav_graph" />
     </fragment>
     <fragment
         android:id="@+id/alphabet"
@@ -56,7 +68,8 @@
         tools:layout="@layout/fragment_alphabet" >
         <action
             android:id="@+id/action_alphabet_to_home2"
-            app:destination="@id/home2" />
+            app:destination="@id/home2"
+            app:popUpTo="@id/nav_graph" />
     </fragment>
 
 
@@ -64,10 +77,12 @@
         android:id="@+id/splash"
         android:name="com.roula.kidslearning.logIn.Splash"
         android:label="fragment_splash"
-        tools:layout="@layout/fragment_splash" >
+        tools:layout="@layout/fragment_splash"
+        >
         <action
             android:id="@+id/action_splash_to_login"
-            app:destination="@id/login" />
+            app:destination="@id/login"
+            app:popUpTo="@id/nav_graph" />
     </fragment>
     <fragment
         android:id="@+id/settings"
@@ -77,10 +92,12 @@
         <action
             android:id="@+id/action_settings_to_login"
             app:popUpTo="@id/nav_graph"
-            app:destination="@id/login" />
+            app:destination="@id/login"
+            />
         <action
             android:id="@+id/action_settings_to_home2"
-            app:destination="@id/home2" />
+            app:destination="@id/home2"
+            app:popUpTo="@id/nav_graph" />
     </fragment>
     <fragment
         android:id="@+id/color"
@@ -89,7 +106,8 @@
         tools:layout="@layout/fragment_color" >
         <action
             android:id="@+id/action_color_to_home2"
-            app:destination="@id/home2" />
+            app:destination="@id/home2"
+            app:popUpTo="@id/nav_graph" />
     </fragment>
 
     <fragment
@@ -119,13 +137,16 @@
             app:exitAnim="@anim/from_bottom"
             app:popUpTo="@id/nav_graph" />
     </dialog>
-    <fragment
+    <dialog
         android:id="@+id/forgotPassword"
         android:name="com.roula.kidslearning.learning.ForgotPassword"
         android:label="fragment_forgot_password"
         tools:layout="@layout/fragment_forgot_password" >
         <action
             android:id="@+id/action_forgotPassword_to_login"
-            app:destination="@id/login" />
-    </fragment>
+            app:destination="@id/login"
+            app:enterAnim="@anim/from_top"
+            app:exitAnim="@anim/from_bottom"
+            app:popUpTo="@id/nav_graph"/>
+    </dialog>
 </navigation>

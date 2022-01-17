@@ -6,7 +6,10 @@
     <color name="white">#FF000000</color>
     <color name="backGroundAll">#424141</color>
     <color name="red">#E40416</color>
+    <color name="backGroundWhite">#D8D1D1</color>
     <color name="colorBlueDark">#FFFFFFFF</color>
     <color name="colorPink">#d95b58</color>
+    <color name="lightGrey">#FF000000</color>
+
 
 </resources>

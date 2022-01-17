@@ -10,7 +10,7 @@ import java.util.concurrent.TimeUnit
 class NotificationRepo {
         fun myNotification(mainActivity: MainActivity){
             val myWorkRequest= PeriodicWorkRequest
-                .Builder(WorkerNotification::class.java,15, TimeUnit.MINUTES)
+                .Builder(WorkerNotification::class.java,7, TimeUnit.DAYS)
                 .setInputData(workDataOf(
                     "title" to "We miss you kids \uD83D\uDC6B",
                     "message" to "Come back and learn more \uD83D\uDC96")

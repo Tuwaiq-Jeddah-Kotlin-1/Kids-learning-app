@@ -3,16 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@color/backGroundAll"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/card66"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
-
-        app:cardBackgroundColor="@color/white"
+        app:cardBackgroundColor="@color/backGroundAll"
         app:cardCornerRadius="20dp"
         app:cardElevation="6dp"
         app:cardMaxElevation="6dp"
@@ -23,14 +21,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
+
             <EditText
                 android:id="@+id/emilPass"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_margin="10dp"
                 android:contentDescription="@string/app_name"
                 android:textSize="30sp"
+                android:background="@drawable/header_bg"
+                android:textColor="@color/lightGrey"
+                android:layout_marginLeft="5dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -40,23 +41,21 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom|center_horizontal"
-                android:backgroundTint="@color/white"
                 android:text="lesson"
-                android:src="@drawable/soundblue"
-                android:textColor="@color/black"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/emilPass" />
+                android:background="@drawable/soundblue"
+                app:layout_constraintTop_toBottomOf="@+id/emilPass"
+                app:layout_constraintRight_toRightOf="parent"/>
 
             <ImageButton
                 android:id="@+id/edit_mom"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_gravity="bottom"
+                android:layout_width="35dp"
+                android:layout_height="33dp"
+                android:layout_marginTop="5dp"
+                android:layout_gravity="bottom|center_horizontal"
                 android:background="@drawable/edit"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/emilPass"
+                tools:ignore="NotSibling" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

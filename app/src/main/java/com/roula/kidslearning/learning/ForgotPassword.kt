@@ -10,11 +10,14 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.firebase.auth.FirebaseAuth
 import com.roula.kidslearning.R
 
 
-class ForgotPassword : Fragment() {
+class ForgotPassword : BottomSheetDialogFragment() {
+    override fun getTheme(): Int = R.style.BottomSheetDialogTheme
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -57,7 +60,7 @@ class ForgotPassword : Fragment() {
                     Toast.makeText(context,"Email sent.", Toast.LENGTH_SHORT).show()
                 }
                 else{
-                    Toast.makeText(context," else Email sent.", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context,"Email not sent.", Toast.LENGTH_SHORT).show()
                 }
             }
     }

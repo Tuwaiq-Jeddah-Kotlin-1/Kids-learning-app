@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.ImageButton
+import androidx.cardview.widget.CardView
 import androidx.navigation.fragment.findNavController
 import com.roula.kidslearning.R
 import kotlinx.coroutines.GlobalScope
@@ -45,6 +46,10 @@ class Color : Fragment() {
         val  soundblue = view.findViewById<ImageButton>(R.id.soundblue)
         val  soundred = view.findViewById<ImageButton>(R.id.soundred)
         val  soundyellow = view.findViewById<ImageButton>(R.id.soundyellow)
+        val card1=view.findViewById<CardView>(R.id.cardView1)
+        val card3=view.findViewById<CardView>(R.id.cardView3)
+        val card4=view.findViewById<CardView>(R.id.cardView4)
+        val card5=view.findViewById<CardView>(R.id.cardView5)
 
 
         var scaleUp = AnimationUtils.loadAnimation(context,R.anim.scale_up)
@@ -54,6 +59,27 @@ class Color : Fragment() {
 
             findNavController().navigate(R.id.action_color_to_home2)
         }
+
+        card1.setOnClickListener {
+            color = "Green"
+            soundOn()
+        }
+
+        card3.setOnClickListener {
+            color = "Red"
+            soundOn()
+        }
+        card4.setOnClickListener {
+            color = "Blue"
+            soundOn()
+        }
+        card5.setOnClickListener {
+            color = "Yellow"
+            soundOn()
+        }
+
+
+
         soundblue.setOnClickListener {
 
             GlobalScope.launch {

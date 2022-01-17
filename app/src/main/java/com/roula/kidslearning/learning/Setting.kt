@@ -71,7 +71,7 @@ class Setting : Fragment() {
 
         preferences = requireContext().getSharedPreferences("SHARED_PREF", Context.MODE_PRIVATE)
         val toggle: Switch = view.findViewById(R.id.switchtheme)
-        toggle.isChecked = preferences.getBoolean("DARK_MOOD" , true)
+        toggle.isChecked = preferences.getBoolean("DARK_MOOD" , false)
         toggle.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
                 AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_YES)
@@ -79,14 +79,11 @@ class Setting : Fragment() {
 
             } else {
                AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_NO)
-
                 preferences.edit().putBoolean("DARK_MOOD", false).apply()
             }
         }
 
-       // val mainActivity = requireActivity() as MainActivity
         val uid = FirebaseAuth.getInstance().currentUser?.uid
-
         firebaseObj.document("$uid").get().addOnCompleteListener { it ->
             it.addOnSuccessListener {
                 if (it != null) {
@@ -128,7 +125,6 @@ class Setting : Fragment() {
         logout.setOnClickListener {
             val editor: SharedPreferences.Editor = preferences.edit().clear()
             editor.apply()
-          //  mainActivity.pef(preferences)
             FirebaseAuth.getInstance().signOut()
             findNavController().navigate(R.id.action_settings_to_login)
 
