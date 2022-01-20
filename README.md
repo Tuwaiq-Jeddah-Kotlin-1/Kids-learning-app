@@ -34,5 +34,6 @@ https://streamable.com/7lpyaa
 #### My Github
 https://github.com/Tuwaiq-Jeddah-Kotlin-1/Kids-learning-app
 #### you can try the application with this account
-##### Email: irulla0@gmail.com
+##### username: kids
+##### Email: kids@gmail.com
 ##### Password: 123456789
