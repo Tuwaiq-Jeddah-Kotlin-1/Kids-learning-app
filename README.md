@@ -1,5 +1,7 @@
 # Kids Zone App
 Android Application using Kotlin.
+
+
 ![image](https://user-images.githubusercontent.com/91476914/150309747-5bd5f843-da55-4b10-be21-4d55e699b75b.png)
 
 ## App idea
