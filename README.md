@@ -20,6 +20,9 @@ It is a mobile app for android, that is to help the parent learn the English lan
 ## Presentation Link
 https://drive.google.com/file/d/19E-PZZULfuAE_lDwPp073nfVf5arNMFx/view?usp=sharing
 
+## Wire Frame Link
+https://www.figma.com/file/cpgSVbM2BeBlbMO9iL2cnM/Untitled?node-id=0%3A1
+
 ## Kids Zone vidoe demo
 https://streamable.com/7lpyaa
 
