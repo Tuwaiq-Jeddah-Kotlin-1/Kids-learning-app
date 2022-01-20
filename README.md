@@ -25,11 +25,9 @@ https://streamable.com/7lpyaa
 
 ## Kids Zone images demo
 
-<img src ="imagesDemo/Screen_Recording_20220117-112438_Kids_Zone_AdobeCreativeCloudExpress (2).gif" width="400">
-<img src ="imagesDemo/Screen_Recording_20220117-112438_Kids_Zone_AdobeCreativeCloudExpress (3).gif" width="400">
+<img src ="imagesDemo/Screen_Recording_20220117-112438_Kids_Zone_AdobeCreativeCloudExpress (2).gif" width="400">&emsp; <img src ="imagesDemo/Screen_Recording_20220117-112438_Kids_Zone_AdobeCreativeCloudExpress (3).gif" width="400">
    
- <img src ="imagesDemo/Screen_Recording_20220117-112438_Kids_Zone_AdobeCreativeCloudExpress (4).gif" width="400">
- <img src ="imagesDemo/Screen_Recording_20220117-112438_Kids_Zone_AdobeCreativeCloudExpress (5).gif" width="400">
+ <img src ="imagesDemo/Screen_Recording_20220117-112438_Kids_Zone_AdobeCreativeCloudExpress (4).gif" width="400">&emsp; <img src ="imagesDemo/Screen_Recording_20220117-112438_Kids_Zone_AdobeCreativeCloudExpress (5).gif" width="400">
 
 
 
