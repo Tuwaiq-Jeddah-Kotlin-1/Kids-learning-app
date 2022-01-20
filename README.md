@@ -20,14 +20,17 @@ It is a mobile app for android, that is to help the parent learn the English lan
 ## Presentation Link
 https://drive.google.com/file/d/19E-PZZULfuAE_lDwPp073nfVf5arNMFx/view?usp=sharing
 
-## Kids Zone demo
+## Kids Zone vidoe demo
 https://streamable.com/7lpyaa
 
-![image](https://user-images.githubusercontent.com/91476914/150312009-edf89f53-bff1-4342-9e69-070d0dae9d5a.png)
-![image](https://user-images.githubusercontent.com/91476914/150312059-426d7a76-41ab-4bda-80a8-7ee78d7dbbb5.png)
+## Kids Zone images demo
 
-![image](https://user-images.githubusercontent.com/91476914/150312089-d3023894-3db8-4b9b-8981-ed592f090de4.png)
-![image](https://user-images.githubusercontent.com/91476914/150312110-98bb3d7a-2757-45b6-946b-4e3ade70ed82.png)
+<imag src ="imagesDemo/Screen_Recording_20220117-112438_Kids_Zone_AdobeCreativeCloudExpress (2).gif" width="400">
+ <imag src ="imagesDemo/Screen_Recording_20220117-112438_Kids_Zone_AdobeCreativeCloudExpress (3).gif" width="400">
+   
+    <imag src ="imagesDemo/Screen_Recording_20220117-112438_Kids_Zone_AdobeCreativeCloudExpress (4).gif" width="400">
+ <imag src ="imagesDemo/Screen_Recording_20220117-112438_Kids_Zone_AdobeCreativeCloudExpress (5).gif" width="400">
+
 
 
 #### My Github
